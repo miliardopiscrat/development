@@ -1,4 +1,6 @@
-adding text
+adding text 
+
+second time adding text
 
 adding line number2
 
