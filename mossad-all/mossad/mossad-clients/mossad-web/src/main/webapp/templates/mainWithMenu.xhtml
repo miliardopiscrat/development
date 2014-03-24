@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:ui="http://java.sun.com/jsf/facelets"  
+      xmlns:h="http://java.sun.com/jsf/html"  
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/templates/main.xhtml" >
+
+        
+        
+        <ui:define name="content">
+            
+            <div id="menuBar">
+                <div class="content">
+                    <h:link outcome="index" ><h:graphicImage alt="logo" id="logo" library="images" name="logo.png" /></h:link>
+                    <div id="menu">
+                        <ul>
+                            <li>home</li>
+                            <li>home1</li>
+                            <li>home2</li>
+                            <li>home3</li>
+                            <li>home4</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <ui:insert name="belowMenu" />
+
+        </ui:define>
+    </ui:composition>
+</html>

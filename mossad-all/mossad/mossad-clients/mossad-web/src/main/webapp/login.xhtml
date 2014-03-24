@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:ui="http://java.sun.com/jsf/facelets"  
+      xmlns:h="http://java.sun.com/jsf/html"  
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/templates/mainWithMenu.xhtml" >
+        <ui:define name="title">#{msg['logIn.pageName']}</ui:define>
+        
+        <ui:define name="headTag">
+            
+            
+            <h:outputStylesheet name="form.css" library="styles"/>
+            
+        </ui:define>
+
+        <ui:define name="belowMenu">
+            <div class="content">
+                <div class="formBox">
+                    <div class="formBoxCaption">
+                        #{msg['logIn.loginToSite']}
+                    </div>
+                    <h:form id="loginForm">
+                        <table>
+                            <tr><td><h:outputLabel for="email" value="#{msg['logIn.email']}" /></td>
+                                <td><h:inputText styleClass="loginInput" id="email" value="#{logInRequestBean.email}" /></td></tr>
+                            <tr><td><h:outputLabel for="password" value="#{msg['logIn.password']}" /></td>
+                                <td><h:inputSecret id="password" styleClass="loginInput" value="#{logInRequestBean.password}" /></td></tr>
+                       
+                            <tr><td></td><td><h:selectBooleanCheckbox id="rememberMeCheckbox"/> <h:outputLabel for="rememberMeCheckbox" value="#{msg['logIn.rememberMe']}" /></td></tr>
+                            <tr><td></td><td><h:commandButton value="#{msg['logIn']}" action="#{logInRequestBean.logIn}" /> #{msg['logIn.or']} <h:link outcome="signUp" value="#{msg['logIn.signUp']}" /></td></tr>
+                            <tr><td></td><td><h:link value="#{msg['logIn.forgotPassword']}" /></td></tr>
+                        </table>
+                        <input type ="hidden" name="from" value="#{requestScope['javax.servlet.forward.request_uri']}" />
+                    </h:form>
+                </div>
+            </div>
+            <script>
+  document.getElementById('loginForm:email').focus();
+            </script>
+        </ui:define>
+    </ui:composition>
+</html>

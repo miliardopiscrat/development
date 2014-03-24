@@ -1,0 +1,85 @@
+/* 
+   
+*/
+
+body > div {
+    min-width: 785px;
+    width: auto !important;
+    width: 785px;
+}
+
+.content {
+    width: 785px;
+    margin: 0 auto;
+}
+
+#topBar {
+    border-bottom: 1px #005CB8 dotted;
+    padding: 4px;
+}
+
+#topBar .dd {
+    margin-left: 10px;
+}
+
+.loginLogout {
+    float: right;
+}
+
+.logOutLink {
+    margin-left: 20px;
+}
+
+#menuBar {
+    padding: 10px 0 32px 0;
+    border-bottom: 1px #005CB8 dotted;
+}
+
+#signUpBanner {
+    border-bottom: 1px #005CB8 dotted;
+    height: 249px;
+}
+
+#signUpBanner .content div {
+    padding-top: 24px;
+}
+
+#list {
+    position: relative;
+    top: -13px;
+    margin-bottom: -12px;
+    margin-right: 24px;
+    float: left;
+}
+
+#logo {
+    float: left;
+}
+
+#menuBar ul {
+    display: inline;
+}
+
+#menuBar #menu {
+    padding-top: 55px;
+}
+
+#menuBar li {
+    display: inline;
+    padding-left: 40px;
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+#bottomPanel {
+    border-top: 1px #005CB8 dotted;
+}
+
+#bottomPanel p {
+    padding: 10px 0;
+}
+
+#copyright {
+    margin-top: 15px;
+    text-align: right;
+}

@@ -1,0 +1,57 @@
+/* 
+   
+*/
+
+/*
+        Slides container
+        Important:
+        Set the width of your slides container
+        Set to display none, prevents content flash
+*/
+.slides_container {
+    width: 100%;
+    display: none;
+    margin: 12px auto 0;
+    border-bottom: 1px dashed lightgray;
+}
+
+/*
+        Each slide
+        Important:
+        Set the width of your slides
+        If height not specified height will be set by the slide content
+        Set to display block
+*/
+.slides_container div {
+    width: 785px;
+    height: 300px;
+    display: block;
+}
+
+.pagination {
+    margin-top: 4px;
+    margin-left: auto;
+    width: 50px;
+    list-style:none;
+    padding-bottom: 24px;
+}
+
+.pagination li {
+    margin:0 1px;
+    float:left;
+}
+
+.pagination li a {
+    display:block;
+    width:12px;
+    height:0;
+    padding-top:12px;
+    background-image:url(../images/pagination.png);
+    background-position:0 0;
+    float:left;
+    overflow:hidden;
+}
+
+.pagination li.current a {
+    background-position:0 -12px;
+}

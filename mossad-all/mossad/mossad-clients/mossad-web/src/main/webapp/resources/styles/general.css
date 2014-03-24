@@ -1,0 +1,64 @@
+/* 
+   
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+body, table, tr, td {
+    font-family: arial, helvetica, sans-serif;
+    font-size: 12px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:link, a:visited {
+    color: #005CB8;
+    font-weight: bold;
+}
+
+a:active {
+    color: #3978b8;
+}
+
+img {
+    border: none;
+}
+
+input[type="submit"], input[type="button"], input[type="text"], input[type="password"] {
+    border: 1px solid #005CB8;
+    padding: 2px;
+}
+
+input[type="submit"], input[type="button"] {
+    background-color: #3978b8;
+
+/*    background-image: linear-gradient(bottom, #3979B8 92%, #A8B6C4 100%);
+    background-image: -o-linear-gradient(bottom, #3979B8 92%, #A8B6C4 100%);
+    background-image: -moz-linear-gradient(bottom, #3979B8 92%, #A8B6C4 100%);
+    background-image: -webkit-linear-gradient(bottom, #3979B8 92%, #A8B6C4 100%);
+    background-image: -ms-linear-gradient(bottom, #3979B8 92%, #A8B6C4 100%);
+
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.92, #3979B8),
+        color-stop(1, #A8B6C4)
+        );*/
+
+    font-weight: bold;
+    color: white;
+
+}
+
+input[type="submit"]:hover, input[type="button"]:hover {
+    cursor: pointer;
+}

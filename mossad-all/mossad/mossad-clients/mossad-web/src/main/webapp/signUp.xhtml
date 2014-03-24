@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:ui="http://java.sun.com/jsf/facelets"  
+      xmlns:h="http://java.sun.com/jsf/html"  
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/templates/mainWithMenu.xhtml" >
+        <ui:define name="title">#{msg['signUp.pageName']}</ui:define>
+
+        <ui:define name="headTag">
+            <h:outputScript name="markerrors.js" library="scripts" />
+            <h:outputStylesheet name="form.css" library="styles"/>
+            <f:phaseListener type="com.mossad.validation.ValidationStylePhaseListener" />
+        </ui:define>
+
+        <ui:define name="belowMenu">
+            <div class="content">
+                <div class="formBox">
+                    <div class="formBoxCaption">
+                        #{msg['signUp.signUpToSite']}
+                    </div>
+                    <h:form id="signUpForm">
+                        <table>
+                            <tr><td colspan="3" class="messages"><h:messages errorClass="errorMessage" /></td></tr>
+                            <tr><td><h:outputLabel styleClass="loginInputLabel" id="emailLabel" for="email" value="#{msg['signUp.email']}" /></td>
+                                <td><h:inputText styleClass="loginInput" required="true" id="email"
+                                                 validatorMessage="#{msg['signUp.invalidEmail']}"
+                                                 requiredMessage="#{msg['signUp.emailIsRequired']}" value="#{signUpBean.email}">
+                                        <f:validator validatorId="com.mossad.EmailValidator" />
+                                    </h:inputText>
+                                </td>
+                                <td><h:outputLabel styleClass="loginInputLabel" id="emailMandatory" for="email" value="#{msg['signUp.mandatory']}" /></td></tr>
+                                
+                            <tr><td><h:outputLabel styleClass="loginInputLabel" id="passwordLabel" for="password" value="#{msg['signUp.password']}" /></td>
+                                <td><h:inputSecret id="password" binding="#{password}" required="true" styleClass="loginInput" value="#{signUpBean.password}"
+                                                   validatorMessage="#{msg['signUp.tooShortPassword']}"
+                                                   requiredMessage="#{msg['signUp.passwordIsRequired']}">
+                                        <f:validator validatorId="com.mossad.PasswordValidator" />
+                                    </h:inputSecret></td>
+                                <td><h:outputLabel styleClass="loginInputLabel" id="passwordMandatory" for="password" value="#{msg['signUp.mandatory']}" /></td></tr>
+                                
+                            <tr><td><h:outputLabel styleClass="loginInputLabel" id="confirmPasswordLabel" for="confirmPassword" value="#{msg['signUp.confirmPassword']}" /></td>
+                                <td><h:inputSecret id="confirmPassword" required="true"  styleClass="loginInput" 
+                                                   validatorMessage="#{msg['signUp.passwordsDoNotMath']}"
+                                                   requiredMessage="#{msg['signUp.confirmPasswordIsRequired']}"> 
+                                        <f:validator validatorId="com.mossad.ConfirmPasswordValidator" />
+                                        <f:attribute name="confirmFor" value="#{password}" />
+                                    </h:inputSecret></td>
+                                <td><h:outputLabel styleClass="loginInputLabel" id="confirmPasswordMandatory" for="confirmPassword" value="#{msg['signUp.mandatory']}" /></td></tr>
+                            
+                            <tr><td><h:outputLabel styleClass="loginInputLabel" id="firstNameLabel" for="firstName" value="#{msg['signUp.firstName']}" /></td>
+                                <td><h:inputText id="firstName" styleClass="loginInput" value="#{signUpBean.firstName}"/></td>
+                                <td></td></tr>    
+                            
+                            <tr><td><h:outputLabel styleClass="loginInputLabel" id="lastNameLabel" for="lastName" value="#{msg['signUp.lastName']}" /></td>
+                                <td><h:inputText id="lastName" styleClass="loginInput" value="#{signUpBean.lastName}"/></td>
+                                <td></td></tr>  
+                                
+                            <tr><td>&nbsp;</td><td><h:selectBooleanCheckbox id="acceptTermsCheckbox" required="true" validatorMessage="#{msg['signUp.acceptTermsIsRequired']}">
+                                        <f:validator validatorId="com.mossad.AcceptTermsValidator" />
+                                    </h:selectBooleanCheckbox> 
+                                    <h:outputLabel styleClass="loginInputLabel" id="acceptTermsLabel" for="acceptTermsCheckbox" value="#{msg['signUp.acceptTerms']}" /></td>
+                                <td><h:outputLabel styleClass="loginInputLabel" id="acceptTermsMandatory" for="acceptTermsCheckbox" value="#{msg['signUp.mandatory']}" /></td></tr>
+                                
+                            <tr><td></td><td><h:commandButton value="#{msg['signUp']}"></h:commandButton> </td><td></td></tr>
+                        </table>
+                    </h:form>
+                </div>
+            </div>
+            <script> 
+                document.getElementById('signUpForm:email').focus();
+                setFocus('#{focus}');
+                setHighlight('#{highlight}', 'loginInputHighlight');
+            </script>
+        </ui:define>
+    </ui:composition>
+</html>

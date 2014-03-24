@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:ui="http://java.sun.com/jsf/facelets"  
+      xmlns:h="http://java.sun.com/jsf/html"  
+      xmlns:f="http://java.sun.com/jsf/core">
+    <f:view locale="#{localeBean.locale}"> 
+        <h:head>
+            <title>#{msg['index.pageName']}</title>
+
+            <link rel="stylesheet" type="text/css" href="styles/general.css" />
+            <link rel="stylesheet" type="text/css" href="styles/home.css" />
+            <link rel="stylesheet" type="text/css" href="styles/slideshow.css" />
+
+            <script src="scripts/jquery-1.7.1.js" ></script>
+            <script src="scripts/slides.jquery.js"></script>
+            <script>
+      $(function(){
+      $('#slides').slides({
+                                    preload: true,
+                                    play: 5000,
+                                    pause: 2500,
+                                    slideSpeed: 350,
+                                    hoverPause: true
+                            });
+    });
+
+            </script>
+        </h:head>
+        <h:body>
+            <div id="topBar">
+                <div class="content">
+                    <h:form>
+                        #{msg['index.welcomeText']} 
+                        <h:selectOneMenu valueChangeListener="#{localeBean.change}" onchange="submit();">
+                            <f:selectItems 
+                                value="#{localeBean.supportedLocales}" 
+                                var="l" 
+                                itemValue="#{l}" 
+                                itemLabel="#{msg[l.toString()]}" />
+                        </h:selectOneMenu>
+                        <span id="login">#{msg['index.areYouSignedUp']} #{msg['index.signIn']}</span>
+                    </h:form>
+                </div>
+            </div>
+
+            <div id="menuBar">
+                <div class="content">
+                    <img id="logo" src="images/logo.png" alt="logo" />
+                    <div id="menu">
+                        <ul>
+                            <li>home</li>
+                            <li>home1</li>
+                            <li>home2</li>
+                            <li>home3</li>
+                            <li>home4</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="signUpBanner">
+                <div class="content">
+                    <img id ="list" src="images/list.png" alt="list" />
+                    <div>
+                        <h1>#{msg['index.pageName']}</h1>
+                        <p>#{msg['index.signUpSlogan']}</p>
+                        <p>#{msg['index.signUp']}</p>
+                    </div>
+                </div>
+            </div>
+            <div id="slideshow">
+                <div class="content">
+                    <div id="slides">
+                        <div class="slides_container">
+                            <div>
+                                <h:outputText value="#{msg['index.slide1.text']}" escape="false" />
+                            </div>
+                            <div>
+                                <h:outputText value="#{msg['index.slide2.text']}" escape="false" />
+                            </div>
+                            <div>
+                                <h:outputText value="#{msg['index.slide3.text']}" escape="false" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="bottomPanel">
+                <div class="content">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                </div>
+            </div>
+            <div id="footer">
+                <div class="content">
+                    <p id="copyright">#{msg['copyright']} | #{msg['terms']} | #{msg['privacy']}</p>
+                </div>
+            </div>
+        </h:body>
+    </f:view>
+</html>

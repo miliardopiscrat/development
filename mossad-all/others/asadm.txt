@@ -1,0 +1,67 @@
+1 JDBC
+-------------------------------------------------------------------------------------------------------------------------
+1.1 jdbc-connection-pool
+
+Pool Name: MySQL_Connection_Pool
+Resource Type: 
+Datasource Classname: com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource
+Initial and Minimum Pool Size :8 --steadypoolsize
+Maximum Pool Size:32 --maxpoolsize
+Pool Resize Quantity: 2 --poolresize
+Idle Timeout:300 --idletimeout 
+Max Wait Time: 60000 --maxwait
+User: mmigdal
+Password: mossad
+URL: jdbc:mysql://10.154.1.166:3306/test
+url: jdbc:mysql://10.154.1.166:3306/test
+ServerName: 10.154.1.166
+
+asadmin create-jdbc-connection-pool --datasourceclassname com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource --restype javax.sql.DataSource --property portNumber=3306:password=mossad:user=mmigdal:serverName=10.154.1.166:databaseName=test MySQL_Connection_Pool_test
+
+-------------------------------------------------------------------------------------------------------------------------
+1.2jdbc-resource
+
+JNDI Name: jdbc/MySQL_Mossad
+Pool Name: MySQL_Connection_Pool
+
+create-jdbc-resource --connectionpoolid MySQL_Connection_Pool jdbc/MySQL_Mossad_test
+
+-------------------------------------------------------------------------------------------------------------------------
+
+2 JMS
+---------------------------------------------------------
+2.1 Connection factories 
+
+uzywaj tylko tej
+Pool Name: MossadConnectionFactory
+JNDI Name: MossadConnectionFactory
+Resource Type: javax.jms.ConnectionFactory
+
+asadmin create-jms-resource --restype javax.jms.ConnectionFactory MossadConnectionFactory
+
+//Pool Name: MossadQueueConnectionFactory
+//JNDI Name: MossadQueueConnectionFactory
+//Resource Type: javax.jms.QueueConnectionFactory
+
+//Pool Name: MossadTopicConnectionFactory
+//JNDI Name: MossadTopicConnectionFactory
+//Resource Type: javax.jms.TopicConnectionFactory
+---------------------------------------------------------
+
+2.2 Destination Resources
+
+//Queue - P2P
+
+JNDI Name: MossadQueue
+Physical Destination Name: MossadQueueDestName
+Resource Type: javax.jms.Queue
+
+asadmin create-jms-resource --restype javax.jms.Queue MossadQueue
+
+//Topic - broadcast
+JNDI Name: MossadTopic
+Physical Destination Name: MossadTopicDestName
+Resource Type: javax.jms.Topic
+
+asadmin create-jms-resource --restype javax.jms.Topic MossadTopic
+

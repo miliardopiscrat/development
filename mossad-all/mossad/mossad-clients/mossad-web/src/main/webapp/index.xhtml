@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:ui="http://java.sun.com/jsf/facelets"  
+      xmlns:h="http://java.sun.com/jsf/html"  
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/templates/mainWithMenu.xhtml" >
+
+        <ui:define name="headTag">
+            
+            
+            <h:outputStylesheet name="slideshow.css" library="styles"/>
+            <h:outputScript name="slides.jquery.js" library="scripts"/>
+            
+            <script>
+      $(function(){
+      $('#slides').slides({
+                                    preload: true,
+                                    preloadImage: '',
+                                    play: 5000,
+                                    pause: 2500,
+                                    slideSpeed: 350,
+                                    hoverPause: true
+                            });
+    });
+
+            </script>
+        </ui:define>
+        
+        <ui:define name="title">#{msg['index.pageName']}</ui:define>
+
+        <ui:define name="belowMenu">
+            <div id="signUpBanner">
+                <div class="content">
+                    <h:graphicImage alt="list" id="list" library="images" name="list.png" />
+                    <div>
+                        <h1>#{msg['index.pageName']}</h1>
+                        <p>#{msg['index.signUpSlogan']}</p>
+                        <p>#{msg['index.signUp']}</p>
+                    </div>
+                </div>
+            </div>
+            <div id="slideshow">
+                <div class="content">
+                    <div id="slides">
+                        <div class="slides_container">
+                            <div>
+                                <h:outputText value="#{msg['index.slide1.text']}" escape="false" />
+                            </div>
+                            <div>
+                                <h:outputText value="#{msg['index.slide2.text']}" escape="false" />
+                            </div>
+                            <div>
+                                <h:outputText value="#{msg['index.slide3.text']}" escape="false" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="bottomPanel">
+                <div class="content">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                </div>
+            </div>
+
+        </ui:define>
+    </ui:composition>
+</html>

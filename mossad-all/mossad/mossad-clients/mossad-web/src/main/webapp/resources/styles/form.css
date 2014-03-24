@@ -1,0 +1,53 @@
+
+
+.formBox { 
+    border-radius: 4px;	
+    -moz-border-radius: 4px;	
+    -webkit-border-radius: 4px; 
+    border: 1px solid #005CB8;
+    margin: 15px auto;
+    padding-bottom: 40px;
+    width: 600px;
+}
+
+.formBox table {
+    margin: 10px auto;
+}
+
+.formBox table td {
+    padding-top: 10px;
+    padding-right: 25px;
+}
+
+.messages {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: red;
+    font-weight: bold;
+}
+
+.errorMessage {
+    display: list-item;
+}
+
+.formBox input.loginInput {
+    width: 200px;
+}
+
+.loginInputHighlight {
+    width: 200px;
+    background-color: #ffd3d3;
+}
+
+.formBoxCaption {
+    width: 540px;
+    margin: 10px auto;
+    font-size: 1.8em;
+    border-bottom: 1px dotted #005CB8;
+    padding-bottom: 5px;
+}
+
+#footer {
+    border-top: 1px dotted #005CB8;
+}
+

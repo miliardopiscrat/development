@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  
+  <!--Remote -->
+  <persistence-unit name="jdbc/MySQL" transaction-type="JTA">
+    <jta-data-source>jdbc/MySQL_Mossad</jta-data-source>
+    
+    <!-- BASE -->
+    <class>com.mossad.lib.domain.constants.Constants</class>
+    
+    <!-- abstraction -->
+    <class>com.mossad.lib.domain.abstraction.IEntity</class>
+    <class>com.mossad.lib.domain.abstraction.AbstractEntityLite</class>
+    <class>com.mossad.lib.domain.abstraction.AbstractEntity</class>
+    <!-- User -->
+    <class>com.mossad.lib.domain.user.User</class>    
+    <class>com.mossad.jpa.lib.factories.UserFactory</class>
+    <class>com.mossad.lib.domain.exceptions.user.UserExistsException</class>
+    <class>com.mossad.lib.domain.exceptions.user.UserNotFoundException</class>
+    <!-- Task creation -->
+    <class>com.mossad.lib.factories.TaskRelatedFactory</class>
+    <class>com.mossad.lib.factories.TaskFactory</class>
+    <class>com.mossad.lib.domain.task.TaskType</class>
+    <class>com.mossad.lib.domain.task.TaskStatus</class>
+    <class>com.mossad.lib.domain.task.TaskPriority</class>
+    <class>com.mossad.lib.domain.task.Task</class>   
+    <class>com.mossad.lib.domain.task.TaskAttributes</class>
+    
+    
+    
+    <properties/>
+  </persistence-unit>
+
+</persistence>

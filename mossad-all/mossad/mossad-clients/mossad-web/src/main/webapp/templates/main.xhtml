@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:ui="http://java.sun.com/jsf/facelets"  
+      xmlns:h="http://java.sun.com/jsf/html"  
+      xmlns:f="http://java.sun.com/jsf/core">
+    <f:view locale="#{localeBean.locale}" > 
+        <h:head>
+            <title><ui:insert name ="title"></ui:insert></title>
+
+            <h:outputStylesheet name="general.css" library="styles"/>
+            <h:outputStylesheet name="index.css" library="styles"/>
+            <h:outputStylesheet name="dd.css" library="styles"/>
+
+            <h:outputScript name="jquery-1.7.1.js" library="scripts"/>
+            <h:outputScript name="jquery.dd.js" library="scripts"/>
+
+            <script language="javascript">
+$(document).ready(function(e) {
+try {
+$("body select").msDropDown();
+} catch(e) {
+alert(e.message);
+}
+});
+            </script>
+
+            <ui:insert name="headTag" />
+        </h:head>
+        <h:body>
+            <div id="topBar">
+                <div class="content">
+                    <h:form>
+                        <h:panelGrid columns="2" styleClass="loginLogout" rendered="#{!logInBean.loggedIn}">#{msg['index.areYouSignedUp']} <h:link styleClass="logInLink" outcome="login">#{msg['index.logIn']}</h:link></h:panelGrid>
+                        <h:panelGrid columns="2" styleClass="loginLogout" rendered="#{logInBean.loggedIn}">#{msg['index.loggedInAs']} #{logInBean.userName} <h:commandLink styleClass="logOutLink" action="#{logInRequestBean.logOut}">#{msg['index.logOut']}</h:commandLink></h:panelGrid>
+                        #{msg['index.welcomeText']} 
+                        <h:selectOneMenu valueChangeListener="#{localeBean.change}" onchange="submit();">
+                            <f:selectItems 
+                                value="#{localeBean.supportedLocales}" 
+                                var="l" 
+                                itemValue="#{l}" 
+                                itemLabel="#{msg[l.toString()]}" />
+                        </h:selectOneMenu>
+                    </h:form>
+                </div>
+            </div>
+
+            <ui:insert name="content" />
+
+            <div id="footer">
+                <div class="content">
+                    <p id="copyright">#{msg['copyright']} | #{msg['terms']} | #{msg['privacy']}</p>
+                </div>
+            </div>
+        </h:body>
+    </f:view>
+</html>
