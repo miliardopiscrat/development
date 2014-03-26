@@ -5,7 +5,6 @@
 package com.mossad.irp.interfaces;
 
 import com.mossad.jpa.lib.user.User;
-import com.mossad.lib.domain.abstraction.IServiceUser;
 import com.mossad.lib.domain.exceptions.user.UserExistsException;
 import com.mossad.lib.domain.exceptions.user.UserNotFoundException;
 
