@@ -19,7 +19,9 @@
     <modules>
 		<module>mossad-domain</module>
 		<module>mossad-access</module>
+		<!--
 		<module>mossad-ejb</module>
+		-->
 		<module>mossad-services</module>
 		<module>mossad-clients</module>
 		<module>mossad-ear</module>  
