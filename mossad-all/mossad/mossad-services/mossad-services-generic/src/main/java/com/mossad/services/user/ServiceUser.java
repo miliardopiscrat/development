@@ -79,6 +79,7 @@ public class ServiceUser implements IServiceUserRemote {
 				.setParameter(Constants.PARAM_EMAIL, email)
 				.setParameter(Constants.PARAM_PASSWORD, password)
 				.getResultList());
+		//getSingleResult() maybe?
 
 		if (usersResult.isEmpty()) {
 			throw new UserNotFoundException(email, password);

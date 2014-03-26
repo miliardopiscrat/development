@@ -19,10 +19,10 @@ public final class TaskAttributes implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String title;
     private String description;
-    private long priority=0;
-    private long user=0;
-    private long status=0;
-    private long type=0;
+    private long priority;
+    private long user;
+    private long status;
+    private long type;
 
     
     public TaskAttributes(){
