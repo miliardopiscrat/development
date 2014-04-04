@@ -14,11 +14,11 @@ Maximum Pool Size:32 --maxpoolsize
 Pool Resize Quantity: 2 --poolresize
 Idle Timeout:300 --idletimeout 
 Max Wait Time: 60000 --maxwait
-User: mmigdal
-Password: mossad
-URL: jdbc:mysql://10.154.1.166:3306/test
-url: jdbc:mysql://10.154.1.166:3306/test
-ServerName: 10.154.1.166
+User: migi
+Password: migi
+URL: jdbc:mysql://127.0.0.1:3306/test
+url: jdbc:mysql://127.0.0.1:3306/test
+ServerName: 127.0.0.1
 
 asadmin create-jdbc-connection-pool --datasourceclassname com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource --restype javax.sql.DataSource --property portNumber=3306:password=mossad:user=mmigdal:serverName=127.0.0.1:databaseName=test MySQL_Connection_Pool_test
 
@@ -28,7 +28,7 @@ asadmin create-jdbc-connection-pool --datasourceclassname com.mysql.jdbc.jdbc2.o
 JNDI Name: jdbc/MySQL_Mossad
 Pool Name: MySQL_Connection_Pool
 
-create-jdbc-resource --connectionpoolid MySQL_Connection_Pool jdbc/MySQL_Mossad_test
+asadmin create-jdbc-resource --connectionpoolid MySQL_Connection_Pool_test jdbc/MySQL_Mossad_test
 
 -------------------------------------------------------------------------------------------------------------------------
 

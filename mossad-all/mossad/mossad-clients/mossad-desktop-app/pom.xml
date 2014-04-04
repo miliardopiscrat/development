@@ -45,27 +45,26 @@
         -->
 
         <!-- above ones could be replaced by this one below but Jenbkins cannot download it somehow, why ? -->
-        <!--
+        
         <dependency>
             <groupId>org.glassfish.appclient</groupId>
             <artifactId>gf-client-module</artifactId>
             <version>3.0.1-b01</version>
         </dependency>
-        -->
-        <!--
+        
         <dependency>
             <groupId>org.glassfish.appclient</groupId>
             <artifactId>gf-client</artifactId>
             <version>3.1.1</version>
         </dependency>
-        -->
-        <!--
+        
+        
         <dependency>
             <groupId>org.glassfish.appclient</groupId>
             <artifactId>client</artifactId>
             <version>3.1.1</version>
         </dependency>
-        -->    
+           
             
 
     </dependencies>

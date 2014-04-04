@@ -1,9 +1,9 @@
-<%@page import="com.mossad.lib.domain.user.User"%>
-<%@page import="com.mossad.lib.domain.task.TaskType"%>
-<%@page import="com.mossad.lib.domain.task.TaskStatus"%>
-<%@page import="com.mossad.lib.domain.task.TaskPriority"%>
+<%@page import="com.mossad.jpa.lib.user.User"%>
+<%@page import="com.mossad.jpa.lib.task.TaskType"%>
+<%@page import="com.mossad.jpa.lib.task.TaskStatus"%>
+<%@page import="com.mossad.jpa.lib.task.TaskPriority"%>
 <%@page import="com.mossad.lib.domain.task.TaskAttributes"%>
-<%@page import="com.mossad.lib.domain.task.Task"%>
+<%@page import="com.mossad.jpa.lib.task.Task"%>
 <%@page import="com.mossad.lib.domain.constants.Constants"%>
 
 <%@page import="java.util.List"%>
@@ -11,11 +11,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="javax.naming.Context" %>
 <%@page import="javax.naming.NamingException" %>
-<%@page import="com.mossad.lib.irp.interfaces.IServiceTask" %>
-<%@page import="com.mossad.lib.irp.interfaces.IServiceUser" %>
-<%@page import="com.mossad.lib.irp.interfaces.IServiceTaskHelper" %>
-<%@page import="com.mossad.lib.irp.servicelocator.IServiceLocator"  %>
-<%@page import="com.mossad.lib.irp.servicelocator.ServiceLocator"  %>
+<%@page import="com.mossad.irp.interfaces.IServiceTaskRemote" %>
+<%@page import="com.mossad.irp.interfaces.IServiceUser" %>
+<%@page import="com.mossad.irp.interfaces.IServiceTaskHelperRemote" %>
+<%@page import="com.mossad.irp.servicelocator.IServiceLocator"  %>
+<%@page import="com.mossad.irp.servicelocator.ServiceLocator"  %>
 <%@page import="java.sql.Connection"%>
 <%@page import="javax.sql.DataSource"%>
 
