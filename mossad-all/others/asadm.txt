@@ -1,10 +1,4 @@
-Path to asadmin
-C:\Program Files\glassfish-4.0\bin
 
-http://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.30
-
-Get the jar and put it to glassfish
-should be placed under the lib folder, not under lib/ext folder. 
 
 
 

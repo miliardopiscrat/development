@@ -1,14 +1,20 @@
+Path to asadmin
+C:\Program Files\glassfish-4.0\bin
+
+http://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.30
+
+Get the jar and put it to glassfish
+should be placed under the lib folder, not under lib/ext folder. 
+
+
 1 Obydwa jary nalezy wrzucic do katalogu lib na glassfish.
 
-2 W mossad-lib nalezy do dependencies dodac recznie zaleznosci --> najezdzamy na missing artifact, prawy myszka, install manually i wskazujemy na eclipseLink.jar
-
-3 Recznie nalezy zdefiniowac JDBC resource na glassfishu.
-3a) beda skrypty konfigurujace resource'y - do napisania
+2 uruchamiamy skrypty z asadm.txt
 
 
-For Local EJB runner set in run config
--Djava.ext.dirs=/usr/local/glassfish-3.1/glassfish/lib 
-Run it with usage of RUN BUTTON - not run file ..
+?For Local EJB runner set in run config
+?-Djava.ext.dirs=/usr/local/glassfish-3.1/glassfish/lib 
+?Run it with usage of RUN BUTTON - not run file ..
 
-Konfiguracja zrodla danych za pomoca konsoli w asadmin.txt
-Konfiguracja JMS w asadmin.txt ( na razie brak skryptow dla asadmin )
+? Konfiguracja zrodla danych za pomoca konsoli w asadmin.txt
+? Konfiguracja JMS w asadmin.txt ( na razie brak skryptow dla asadmin )
