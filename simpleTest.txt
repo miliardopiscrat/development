@@ -1,12 +1,2 @@
-adding text 
-
-second time adding text
-
-adding line number2
-
-my line mumber3
-<<<<<<< HEAD
-
-Just adding my next line
-=======
->>>>>>> b129dd532eb203601b11363526f4099ce45aa98b
+removal by kogut
+another commit - this time also remote pone
