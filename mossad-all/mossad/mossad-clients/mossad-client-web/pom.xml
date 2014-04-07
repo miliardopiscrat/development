@@ -13,5 +13,6 @@
   <name>${project.artifactId}</name>
   <modules>
     <module>mossad-web-jsf</module>
+    <module>mossad-web-servlet</module>
   </modules>
 </project>
