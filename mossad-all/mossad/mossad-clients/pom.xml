@@ -18,7 +18,9 @@
 		<modules>
 		
 			<module>mossad-client-web</module>
+			<!--
 			<module>mossad-web-jsf</module>
+			-->
 			<!--
 			<module>mossad-desktop-app</module>
 			-->
