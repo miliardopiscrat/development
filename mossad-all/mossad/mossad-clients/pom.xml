@@ -24,7 +24,9 @@
 			<!--
 			<module>mossad-desktop-app</module>
 			-->
+			<!--
 			<module>mossad-tester</module>
+			-->
     
   </modules>
 	
