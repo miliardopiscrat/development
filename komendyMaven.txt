@@ -1,0 +1,17 @@
+
+mvn clean compile test install
+
+mvn surefire-report:report cobertura:cobertura site checkstyle:checkstyle
+
+
+
+mvn versions:set -DnewVersion=2.0-SNAPSHOTKogut
+
+FULL:
+
+
+mvn clean compile test install surefire-report:report cobertura:cobertura site checkstyle:checkstyle
+
+
+
+mvn -T 4 clean compile test install surefire-report:report cobertura:cobertura site checkstyle:checkstyle
