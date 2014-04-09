@@ -1,4 +1,4 @@
-package mossad.mossaddesktopapp;
+package com.mossad.mossaddesktopapp;
 
 import com.mossad.lib.domain.constants.Constants;
 
@@ -56,7 +56,7 @@ public class BusinessLogicEJBMDBTester {
 
 
             //JMS Tester
-        } catch (Exception ex) {
+        } catch (NamingException | JMSException ex) {
            
             System.out.println("Error message : " +  ex.getMessage() );
             System.out.println("Error : " +  ex);
