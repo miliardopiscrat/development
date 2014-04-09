@@ -18,7 +18,6 @@
 		<modules>
 		
 			<module>mossad-client-web</module>
-			<module>mossad-client-desktop</module>
   </modules>
 	
  <dependencies>
