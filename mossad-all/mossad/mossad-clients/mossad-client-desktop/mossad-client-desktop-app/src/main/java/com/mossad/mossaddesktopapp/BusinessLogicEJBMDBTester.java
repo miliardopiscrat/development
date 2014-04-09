@@ -56,12 +56,15 @@ public class BusinessLogicEJBMDBTester {
 
 
             //JMS Tester
-        } catch (NamingException | JMSException ex) {
+        } catch (NamingException | JMSException ex ) {
            
             System.out.println("Error message : " +  ex.getMessage() );
             System.out.println("Error : " +  ex);
             
-        } finally{
+        }
+        
+        
+        finally{
             System.out.println("Closing connections : " );
             connection.close();
             System.out.println("Closed connections : " );

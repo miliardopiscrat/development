@@ -1,4 +1,4 @@
-package mossad.mossaddesktopapp;
+package com.mossad.mossaddesktopapp;
 
 import com.mossad.irp.interfaces.IServiceTaskRemote;
 import com.mossad.irp.servicelocator.IServiceLocator;
