@@ -38,8 +38,8 @@ public class Task extends AbstractEntityLite {
     @Column(name="priority")
     private Long priority;
     
-    @Column(name="user")
-    private long user;
+    @Column(name="userId")
+    private long userId;
     
     @Column(name="status")
     private long status;
@@ -108,15 +108,15 @@ public class Task extends AbstractEntityLite {
     /**
      * @return the user
      */
-    public Long getUser() {
-        return user;
+    public Long getUserId() {
+        return userId;
     }
 
     /**
      * @param user the user to set
      */
-    public void setUser(Long user) {
-        this.user = user;
+    public void setUser(Long userId) {
+        this.userId = userId;
     }
 
     /**

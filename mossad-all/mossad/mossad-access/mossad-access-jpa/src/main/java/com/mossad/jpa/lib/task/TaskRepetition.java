@@ -6,22 +6,16 @@ package com.mossad.jpa.lib.task;
 
 import com.mossad.jpa.lib.abstraction.AbstractEntity;
 
-
 //TODO but later
-
 /**
  *
  * @author mmigdal
  */
-
-
 //TODO
 // add to DB & Impl
-
 public class TaskRepetition extends AbstractEntity {
 
     public TaskRepetition(Long id, String value) {
         super(id, value);
     }
-    
 }

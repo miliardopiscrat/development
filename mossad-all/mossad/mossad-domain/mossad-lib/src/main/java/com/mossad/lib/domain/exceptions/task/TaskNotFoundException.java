@@ -9,16 +9,13 @@ package com.mossad.lib.domain.exceptions.task;
  * @author mmigdal
  */
 public final class TaskNotFoundException extends Exception {
-    
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 
-	//Long Id;
-    
-    public TaskNotFoundException(){
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
+    //Long Id;
+    public TaskNotFoundException() {
     }
-    
-    
 }

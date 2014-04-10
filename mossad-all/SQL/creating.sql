@@ -1,18 +1,18 @@
 CREATE TABLE IF NOT EXISTS `task_status` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `value` varchar(80) COLLATE utf8_polish_ci NOT NULL,
+  `val` varchar(80) COLLATE utf8_polish_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `task_type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `value` varchar(80) COLLATE utf8_polish_ci NOT NULL,
+  `val` varchar(80) COLLATE utf8_polish_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=1 ;
 
 CREATE TABLE IF NOT EXISTS `task_priority` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `value` text NOT NULL,
+  `val` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=1 ;
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `mossad_task` (
   `title` text ,
   `description` text ,
   `priority` int(11) , 
-  `user` int(11) ,
+  `userId` int(11) ,
   `status` int(11) ,
   `type` int(11) ,
   PRIMARY KEY (`id`),

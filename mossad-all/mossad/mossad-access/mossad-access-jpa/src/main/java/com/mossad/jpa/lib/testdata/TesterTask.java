@@ -96,7 +96,7 @@ public class TesterTask {
             System.out.println( task.getTitle() );
             System.out.println( task.getDescription() );
             System.out.println( task.getPriority() );
-            System.out.println( task.getUser() );
+            System.out.println( task.getUserId() );
            // System.out.println( task.getType() );
             //int status
             

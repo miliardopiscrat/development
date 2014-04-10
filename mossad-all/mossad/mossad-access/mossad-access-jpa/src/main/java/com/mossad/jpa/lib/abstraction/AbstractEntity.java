@@ -18,31 +18,28 @@ import javax.persistence.InheritanceType;
 public abstract class AbstractEntity extends AbstractEntityLite //implements IEntity 
 {
 
-    @Column(name = "value")
-    private String value;
+    @Column(name = "val")
+    private String val;
 
     public AbstractEntity() {
     }
 
     public AbstractEntity(Long id, String value) {
-
         super(id);
-
-        this.value = value;
-
+        this.val = value;
     }
 
     /**
      * @return the value
      */
     public String getValue() {
-        return value;
+        return val;
     }
 
     /**
      * @param value the value to set
      */
     public void setValue(String value) {
-        this.value = value;
+        this.val = value;
     }
 }

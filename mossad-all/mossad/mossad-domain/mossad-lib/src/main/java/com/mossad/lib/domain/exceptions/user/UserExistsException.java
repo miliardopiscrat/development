@@ -9,14 +9,14 @@ package com.mossad.lib.domain.exceptions.user;
  * @author mmigdal
  */
 public final class UserExistsException extends Exception {
-    
+
     /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private String email;
-    
-    public UserExistsException(String email){
+     *
+     */
+    private static final long serialVersionUID = 1L;
+    private String email;
+
+    public UserExistsException(String email) {
         this.email = email;
     }
 
@@ -26,7 +26,4 @@ public final class UserExistsException extends Exception {
     public String getEmail() {
         return email;
     }
-    
-    
-    
 }
