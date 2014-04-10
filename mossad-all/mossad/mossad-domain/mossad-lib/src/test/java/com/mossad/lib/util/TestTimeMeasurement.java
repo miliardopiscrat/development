@@ -19,14 +19,6 @@ public class TestTimeMeasurement {
 
     private TimeMeasurement timeMeasurement;
 
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-
     @Before
     public void setUp() {
         timeMeasurement = new TimeMeasurement();

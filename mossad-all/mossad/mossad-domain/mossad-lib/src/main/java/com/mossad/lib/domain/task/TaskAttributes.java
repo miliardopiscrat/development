@@ -10,24 +10,20 @@ import java.io.Serializable;
  *
  * @author mmigdal
  */
-public final class TaskAttributes implements Serializable{
-    
-    
+public final class TaskAttributes implements Serializable {
+
     /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	private String title;
+     *
+     */
+    private static final long serialVersionUID = 1L;
+    private String title;
     private String description;
     private long priority;
     private long user;
     private long status;
     private long type;
 
-    
-    public TaskAttributes(){
-
-        
+    public TaskAttributes() {
     }
 
     /**
@@ -113,5 +109,4 @@ public final class TaskAttributes implements Serializable{
     public void setType(long type) {
         this.type = type;
     }
-    
 }
