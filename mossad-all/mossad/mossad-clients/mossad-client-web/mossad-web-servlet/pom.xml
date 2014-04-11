@@ -25,6 +25,19 @@
             <artifactId>javaee-web-api</artifactId>
             <scope>provided</scope>
         </dependency>
+        
+        <dependency>
+            <groupId>javax</groupId>
+                <artifactId>javaee-api</artifactId>
+            <scope>provided</scope>
+            
+        </dependency>
+        <dependency>
+            <groupId>mossad</groupId>
+            <artifactId>mossad-irp</artifactId>
+            <version>1.0-SNAPSHOT</version>      
+        </dependency>
+        
     </dependencies>
 
     <build>

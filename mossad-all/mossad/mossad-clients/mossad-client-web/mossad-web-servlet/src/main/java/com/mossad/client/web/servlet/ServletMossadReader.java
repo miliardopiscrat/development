@@ -12,13 +12,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mossad.irp.interfaces.IServiceTaskRemote;
+import com.mossad.irp.interfaces.IServiceUser;
+import javax.ejb.EJB;
+
 /**
  *
  * @author mmigdal
  */
-@WebServlet(name = "ServletMossad", urlPatterns = {"/ServletMossad"})
-public class ServletMossad extends HttpServlet {
+@WebServlet(name = "ServletMossadReader", urlPatterns = {"/ServletMossadReader"})
+public class ServletMossadReader extends HttpServlet {
 
+     
+    //injection remote
+    @EJB
+    private IServiceTaskRemote iServiceTaskRemote;
+    
+    @EJB
+    private IServiceUser test;
+    
+    private String aaa;
+    
+    
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -45,7 +60,7 @@ public class ServletMossad extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         } finally {            
-            out.close();
+            out.flush();
         }
     }
 
