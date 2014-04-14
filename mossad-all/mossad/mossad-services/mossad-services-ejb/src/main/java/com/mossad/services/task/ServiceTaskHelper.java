@@ -4,19 +4,23 @@
  */
 package com.mossad.services.task;
 
-import com.mossad.lib.domain.constants.Constants;
-import com.mossad.irp.interfaces.IServiceTaskHelperRemote;
-import com.mossad.jpa.lib.task.TaskPriority;
-import com.mossad.jpa.lib.task.TaskStatus;
-import com.mossad.jpa.lib.task.TaskType;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Remote;
+import javax.ejb.Local;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import com.mossad.lib.domain.constants.Constants;
+import com.mossad.irp.interfaces.task.helper.IServiceTaskHelper;
+import com.mossad.irp.interfaces.task.helper.IServiceTaskHelperRemote;
+import com.mossad.irp.interfaces.task.helper.IServiceTaskHelperLocal;
+import com.mossad.jpa.lib.task.TaskPriority;
+import com.mossad.jpa.lib.task.TaskStatus;
+import com.mossad.jpa.lib.task.TaskType;
 
 /**
  * 
@@ -24,7 +28,8 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless(name = Constants.BINDING_SERVICE_HELPER, mappedName = Constants.BINDING_SERVICE_HELPER)
 @Remote(IServiceTaskHelperRemote.class)
-public class ServiceTaskHelper implements IServiceTaskHelperRemote {
+@Local(IServiceTaskHelperLocal.class)
+public class ServiceTaskHelper implements IServiceTaskHelper {
 
 	@PersistenceContext
 	EntityManager em;

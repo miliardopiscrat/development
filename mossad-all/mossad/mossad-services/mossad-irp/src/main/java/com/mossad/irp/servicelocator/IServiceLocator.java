@@ -4,9 +4,9 @@
  */
 package com.mossad.irp.servicelocator;
 
-import com.mossad.irp.interfaces.IServiceTaskRemote;
-import com.mossad.irp.interfaces.IServiceTaskHelperRemote;
-import com.mossad.irp.interfaces.IServiceUserRemote;
+import com.mossad.irp.interfaces.task.IServiceTaskRemote;
+import com.mossad.irp.interfaces.task.helper.IServiceTaskHelperRemote;
+import com.mossad.irp.interfaces.user.IServiceUserRemote;
 import javax.naming.NamingException;
 
 /**

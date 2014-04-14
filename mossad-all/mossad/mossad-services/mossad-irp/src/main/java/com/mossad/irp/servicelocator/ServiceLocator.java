@@ -8,9 +8,9 @@ import java.util.logging.Level;
 import javax.naming.InitialContext;
 import java.util.logging.Logger;
 import com.mossad.lib.domain.constants.Constants;
-import com.mossad.irp.interfaces.IServiceTaskRemote;
-import com.mossad.irp.interfaces.IServiceTaskHelperRemote;
-import com.mossad.irp.interfaces.IServiceUserRemote;
+import com.mossad.irp.interfaces.task.IServiceTaskRemote;
+import com.mossad.irp.interfaces.task.helper.IServiceTaskHelperRemote;
+import com.mossad.irp.interfaces.user.IServiceUserRemote;
 import java.util.Properties;
 import javax.naming.NamingException;
 

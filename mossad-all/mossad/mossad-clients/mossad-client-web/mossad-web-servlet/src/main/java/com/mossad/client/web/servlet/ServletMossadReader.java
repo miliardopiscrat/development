@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mossad.irp.interfaces.IServiceTaskRemote;
-import com.mossad.irp.interfaces.IServiceUser;
+import com.mossad.irp.interfaces.task.IServiceTaskRemote;
+import com.mossad.irp.interfaces.user.IServiceUser;
 import javax.ejb.EJB;
 
 /**
@@ -102,6 +102,6 @@ public class ServletMossadReader extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "Short description";
+        return "Short description for Mossad Servlet";
     }// </editor-fold>
 }

@@ -4,13 +4,6 @@
  */
 package com.mossad.services.user;
 
-import com.mossad.lib.domain.constants.Constants;
-import com.mossad.lib.domain.exceptions.user.UserExistsException;
-import com.mossad.lib.domain.exceptions.user.UserNotFoundException;
-import com.mossad.irp.interfaces.IServiceUserRemote;
-import com.mossad.jpa.lib.factories.UserFactory;
-import com.mossad.jpa.lib.user.User;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.*;
@@ -18,10 +11,21 @@ import java.util.logging.*;
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 import javax.ejb.Remote;
+import javax.ejb.Local;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
+
+
+import com.mossad.lib.domain.constants.Constants;
+import com.mossad.lib.domain.exceptions.user.UserExistsException;
+import com.mossad.lib.domain.exceptions.user.UserNotFoundException;
+import com.mossad.irp.interfaces.user.IServiceUserRemote;
+import com.mossad.irp.interfaces.user.IServiceUserLocal;
+import com.mossad.irp.interfaces.user.IServiceUser;
+import com.mossad.jpa.lib.factories.UserFactory;
+import com.mossad.jpa.lib.user.User;
 
 /**
  * 
@@ -30,13 +34,15 @@ import javax.jws.WebService;
 @Stateless
 // (name=Constants.BINDING_SERVICE_USER,mappedName=Constants.BINDING_SERVICE_USER)
 @Remote(IServiceUserRemote.class)
+@Local(IServiceUserLocal.class)
 @WebService()
-public class ServiceUser implements IServiceUserRemote {
+public class ServiceUser implements IServiceUser {
 
 	private UserFactory userFactory;
-	@PersistenceContext
+        private static final Logger log = Logger.getLogger(Constants.LOGGER_SERVICE_USER);
+	
+        @PersistenceContext
 	private EntityManager em;
-	static final Logger log = Logger.getLogger(Constants.LOGGER_SERVICE_USER);
 
 	@PostConstruct
 	public void init() {

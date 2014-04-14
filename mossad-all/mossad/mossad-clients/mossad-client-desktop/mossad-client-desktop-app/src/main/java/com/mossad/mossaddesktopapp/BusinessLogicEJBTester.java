@@ -1,9 +1,9 @@
 package com.mossad.mossaddesktopapp;
 
-import com.mossad.irp.interfaces.IServiceTaskRemote;
+import com.mossad.irp.interfaces.task.IServiceTaskRemote;
 import com.mossad.irp.servicelocator.IServiceLocator;
 import com.mossad.irp.servicelocator.ServiceLocator;
-import com.mossad.irp.interfaces.IServiceTaskHelperRemote;
+import com.mossad.irp.interfaces.task.helper.IServiceTaskHelperRemote;
 import com.mossad.jpa.lib.task.TaskType;
 import com.mossad.lib.util.TimeMeasurement;
 

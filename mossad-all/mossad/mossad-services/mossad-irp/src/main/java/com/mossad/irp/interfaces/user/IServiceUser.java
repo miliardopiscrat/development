@@ -1,4 +1,4 @@
-package com.mossad.irp.interfaces;
+package com.mossad.irp.interfaces.user;
 
 import com.mossad.jpa.lib.user.User;
 import com.mossad.lib.domain.exceptions.user.UserExistsException;

@@ -6,7 +6,7 @@ package com.mossad.services.task;
 
 import com.mossad.lib.domain.constants.Constants;
 import com.mossad.lib.domain.task.TaskAttributes;
-import com.mossad.irp.interfaces.IServiceTaskRemote;
+import com.mossad.irp.interfaces.task.IServiceTaskRemote;
 import com.mossad.jpa.lib.factories.TaskFactory;
 import com.mossad.jpa.lib.task.Task;
 
