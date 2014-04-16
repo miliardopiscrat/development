@@ -24,12 +24,17 @@ import javax.ejb.EJB;
 public class ServletMossadReader extends HttpServlet {
 
      
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
+
     //injection remote
     @EJB
     private IServiceTaskRemote iServiceTaskRemote;
     
     @EJB
-    private IServiceUser test;
+    private IServiceUser serviceUser;
     
     private String aaa;
     
@@ -57,8 +62,28 @@ public class ServletMossadReader extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ServletMossad at " + request.getContextPath() + "</h1>");
+            
+            out.println("<table>");
+            
+            //headers
+            out.println(
+                "<tr>" +
+                "<th>Name</th>" +
+                "<th>Surname</th>" +
+                "<th>email</th>" +
+                "<th>login</th>" +
+                "<th>password</th>" +
+                "</tr>");
+            
+            
+            
+            
+            out.println("</table>");
             out.println("</body>");
             out.println("</html>");
+            
+            
+            
         } finally {            
             out.flush();
         }
