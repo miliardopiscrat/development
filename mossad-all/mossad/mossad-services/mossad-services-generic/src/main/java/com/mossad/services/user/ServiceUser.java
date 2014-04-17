@@ -27,6 +27,7 @@ import com.mossad.irp.interfaces.user.IServiceUser;
 import com.mossad.jpa.lib.factories.UserFactory;
 import com.mossad.jpa.lib.user.User;
 import java.util.Set;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -160,36 +161,43 @@ public class ServiceUser implements IServiceUser {
 
 	}
 
+        //TO test
 	@WebMethod
 	@Override
 	public User getByEmail(String email) throws UserNotFoundException {
 
-		List<User> usersResult = new ArrayList<>();
-
-		usersResult.addAll(em
-				.createNamedQuery(Constants.QUERY_GET_USER_BY_EMAIL)
-				.setParameter(Constants.PARAM_EMAIL, email).getResultList());
-
-		if (usersResult.isEmpty()) {
-			throw new UserNotFoundException(email);
-		} else {
-			return usersResult.get(0);
-		}
-
+                CriteriaBuilder cb = em.getCriteriaBuilder();              
+                CriteriaQuery cq = cb.createQuery();
+                Root<User> root = cq.from(User.class);              
+                cq.where( cb.equal(root.get("email"), cb.parameter(String.class, "emial"))  );             
+                TypedQuery<User> query = em.createQuery(cq);
+                query.setParameter("emial", email);
+                User user = query.getSingleResult();
+                
+                //OLD approach
+                //List<User> usersResult = new ArrayList<>();
+		//usersResult.addAll(em
+		//		.createNamedQuery(Constants.QUERY_GET_USER_BY_EMAIL)
+		//		.setParameter(Constants.PARAM_EMAIL, email).getResultList());
+                //    
+		//if (usersResult.isEmpty()) {
+		//	throw new UserNotFoundException(email);
+		//} else {
+		//	return usersResult.get(0);
+		//}
+                return user;
 	}
 
+    //to test
     //JPQL since JPA2.x
     @Override
     public List<User> getUsers() {
         
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<User>cq = cb.createQuery(User.class);
-        Root<User> pet = cq.from(User.class);
-        cq.select(pet);
-       
+        //Root<User> pet = cq.from(User.class);
         TypedQuery<User> q = em.createQuery(cq);
-        List<User> allPets = q.getResultList();
-        
+        List<User> allPets = q.getResultList();       
         
         return allPets;
     }
