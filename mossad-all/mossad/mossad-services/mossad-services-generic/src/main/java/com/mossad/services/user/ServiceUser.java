@@ -27,6 +27,10 @@ import com.mossad.irp.interfaces.user.IServiceUser;
 import com.mossad.jpa.lib.factories.UserFactory;
 import com.mossad.jpa.lib.user.User;
 import java.util.Set;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 /**
  * 
@@ -174,8 +178,19 @@ public class ServiceUser implements IServiceUser {
 
 	}
 
+    //JPQL since JPA2.x
     @Override
-    public Set<User> getUsers() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<User> getUsers() {
+        
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery<User>cq = cb.createQuery(User.class);
+        Root<User> pet = cq.from(User.class);
+        cq.select(pet);
+       
+        TypedQuery<User> q = em.createQuery(cq);
+        List<User> allPets = q.getResultList();
+        
+        
+        return allPets;
     }
 }

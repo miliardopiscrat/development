@@ -46,6 +46,8 @@ public final class Constants {
     public final static String QUERY_GET_USER_BY_ID = "getUserById";
     public final static String QUERY_GET_USER_BY_EMAIL = "getUserByEmail";
     public final static String LOGIN_USER_BY_EMAIL_AND_PASSWORD = "loginUserByEmailAndPassword";
+    public final static String GET_ALL_USERS = "getAllUsers";
+    
     //Task related
     public final static String TASK_TYPE_DEF ="task_type";
     public final static String TASK_TYPE_QUERY_NAME = "getTaskTypes";

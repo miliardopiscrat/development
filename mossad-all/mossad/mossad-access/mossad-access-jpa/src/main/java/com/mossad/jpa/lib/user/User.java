@@ -25,7 +25,9 @@ import javax.persistence.Table;
     @NamedQuery(name = Constants.QUERY_GET_USER_BY_EMAIL,
     query = "SELECT e FROM mossad_user e WHERE e.email= :"+Constants.PARAM_EMAIL),
     @NamedQuery(name = Constants.QUERY_GET_USER_BY_ID,
-    query = "SELECT e FROM mossad_user e WHERE e.id= :"+Constants.PARAM_ID)
+    query = "SELECT e FROM mossad_user e WHERE e.id= :"+Constants.PARAM_ID),
+    @NamedQuery(name = Constants.GET_ALL_USERS,
+    query = "SELECT e FROM mossad_user")
 })
 public class User extends AbstractEntityLite {
 
