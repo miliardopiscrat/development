@@ -26,6 +26,7 @@ import com.mossad.irp.interfaces.user.IServiceUserLocal;
 import com.mossad.irp.interfaces.user.IServiceUser;
 import com.mossad.jpa.lib.factories.UserFactory;
 import com.mossad.jpa.lib.user.User;
+import java.util.Set;
 
 /**
  * 
@@ -172,4 +173,9 @@ public class ServiceUser implements IServiceUser {
 		}
 
 	}
+
+    @Override
+    public Set<User> getUsers() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
