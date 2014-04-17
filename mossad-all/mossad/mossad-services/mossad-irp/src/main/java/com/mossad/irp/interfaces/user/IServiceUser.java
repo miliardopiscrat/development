@@ -3,6 +3,7 @@ package com.mossad.irp.interfaces.user;
 import com.mossad.jpa.lib.user.User;
 import com.mossad.lib.domain.exceptions.user.UserExistsException;
 import com.mossad.lib.domain.exceptions.user.UserNotFoundException;
+import java.util.Set;
 
 public interface IServiceUser {
 
@@ -21,5 +22,8 @@ public interface IServiceUser {
 	void activateUSer();
 
 	void removeUser(Long id) throws UserNotFoundException;
+        
+        Set<User> getUsers();
+        
     
 }
