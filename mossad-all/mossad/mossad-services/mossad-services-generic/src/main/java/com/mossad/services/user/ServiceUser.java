@@ -34,7 +34,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
 /**
- * 
+ *
  * @author mmigdal
  */
 @Stateless
@@ -44,161 +44,163 @@ import javax.persistence.criteria.Root;
 @WebService()
 public class ServiceUser implements IServiceUser {
 
-	private UserFactory userFactory;
-        private static final Logger log = Logger.getLogger(Constants.LOGGER_SERVICE_USER);
-	
-        @PersistenceContext
-	private EntityManager em;
+    private UserFactory userFactory;
+    private static final Logger log = Logger.getLogger(Constants.LOGGER_SERVICE_USER);
+    @PersistenceContext
+    private EntityManager em;
 
-	@PostConstruct
-	public void init() {
-		userFactory = new UserFactory();
-	}
+    @PostConstruct
+    public void init() {
+        userFactory = new UserFactory();
+    }
 
-	@WebMethod
-	@Override
-	public User createUser(String email, String password)
-			throws UserExistsException {
+    @WebMethod
+    @Override
+    public User createUser(String email, String password)
+            throws UserExistsException {
 
-		List<User> usersResult = new ArrayList<>();
+        List<User> usersResult = new ArrayList<>();
 
-		usersResult.addAll(em
-				.createNamedQuery(Constants.QUERY_GET_USER_BY_EMAIL)
-				.setParameter(Constants.PARAM_EMAIL, email).getResultList());
+        usersResult.addAll(em
+                .createNamedQuery(Constants.QUERY_GET_USER_BY_EMAIL)
+                .setParameter(Constants.PARAM_EMAIL, email).getResultList());
 
-		if (usersResult.isEmpty()) {
-			User user = userFactory.createUser(email, password);
-			user.setEmail(email);
-			user.setPassword(password);
-			em.persist(user);
-			return user;
-		} else {
+        if (usersResult.isEmpty()) {
+            User user = userFactory.createUser(email, password);
+            user.setEmail(email);
+            user.setPassword(password);
+            em.persist(user);
+            return user;
+        } else {
 
-			throw new UserExistsException(email);
-		}
+            throw new UserExistsException(email);
+        }
 
-	}
+    }
 
-	@Override
-	@WebMethod
-	public User loginUser(String email, String password)
-			throws UserNotFoundException {
+    @Override
+    @WebMethod
+    public User loginUser(String email, String password)
+            throws UserNotFoundException {
 
-		// List<User> usersResult = em
-		List<User> usersResult = new ArrayList<>();
-		usersResult.addAll(em
-				.createNamedQuery(Constants.LOGIN_USER_BY_EMAIL_AND_PASSWORD)
-				.setParameter(Constants.PARAM_EMAIL, email)
-				.setParameter(Constants.PARAM_PASSWORD, password)
-				.getResultList());
-		//getSingleResult() maybe?
+        // List<User> usersResult = em
+        List<User> usersResult = new ArrayList<>();
+        usersResult.addAll(em
+                .createNamedQuery(Constants.LOGIN_USER_BY_EMAIL_AND_PASSWORD)
+                .setParameter(Constants.PARAM_EMAIL, email)
+                .setParameter(Constants.PARAM_PASSWORD, password)
+                .getResultList());
+        //getSingleResult() maybe?
 
-		if (usersResult.isEmpty()) {
-			throw new UserNotFoundException(email, password);
-		}
-		return usersResult.get(0);
+        if (usersResult.isEmpty()) {
+            throw new UserNotFoundException(email, password);
+        }
+        return usersResult.get(0);
 
-	}
+    }
 
-	@WebMethod
-	@Override
-	public User updateUser(Long id, String name, String surname)
-			throws UserNotFoundException {
-		User user = getById(id);
+    @WebMethod
+    @Override
+    public User updateUser(Long id, String name, String surname)
+            throws UserNotFoundException {
+        User user = getById(id);
 
-		log.log(Level.INFO, "ServiceUser - found user :{0}", user);
+        log.log(Level.INFO, "ServiceUser - found user :{0}", user);
 
-		user.setName(name);
-		user.setSurname(surname);
+        user.setName(name);
+        user.setSurname(surname);
 
-		log.log(Level.INFO, "ServiceUser - updating found user :{0}", user);
-		try {
-			em.persist(user);
-		} catch (Exception e) {
-			e.printStackTrace();
+        log.log(Level.INFO, "ServiceUser - updating found user :{0}", user);
+        try {
+            em.persist(user);
+        } catch (Exception e) {
+            e.printStackTrace();
 
-			throw new UserNotFoundException(e.getMessage());
+            throw new UserNotFoundException(e.getMessage());
 
-		}
+        }
 
-		return user;
+        return user;
 
-	}
+    }
 
-	@Override
-	public void activateUSer() {
-		throw new UnsupportedOperationException("Not supported yet.");
-	}
+    @Override
+    public void activateUSer() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
-	@WebMethod
-	@Override
-	public void removeUser(Long id) throws UserNotFoundException {
+    @WebMethod
+    @Override
+    public void removeUser(Long id) throws UserNotFoundException {
 
-		User user = getById(id);
-		em.remove(user);
+        User user = getById(id);
+        em.remove(user);
 
-	}
+    }
 
-	@WebMethod
-	@Override
-	public User getById(Long id) throws UserNotFoundException {
+    @WebMethod
+    @Override
+    public User getById(Long id) throws UserNotFoundException {
 
-		log.log(Level.INFO, "ServiceUser - finding user :{0}", id);
+        log.log(Level.INFO, "ServiceUser - finding user :{0}", id);
 
-		List<User> usersResult = new ArrayList<>();
+        List<User> usersResult = new ArrayList<>();
 
-		usersResult.addAll(em.createNamedQuery(Constants.QUERY_GET_USER_BY_ID)
-				.setParameter(Constants.PARAM_ID, id).getResultList());
+        usersResult.addAll(em.createNamedQuery(Constants.QUERY_GET_USER_BY_ID)
+                .setParameter(Constants.PARAM_ID, id).getResultList());
 
-		log.log(Level.INFO, "ServiceUser - finding user found users :{0}",
-				usersResult);
+        log.log(Level.INFO, "ServiceUser - finding user found users :{0}",
+                usersResult);
 
-		if (usersResult.isEmpty()) {
-			throw new UserNotFoundException(id);
-		} else {
-			return usersResult.get(0);
-		}
+        if (usersResult.isEmpty()) {
+            throw new UserNotFoundException(id);
+        } else {
+            return usersResult.get(0);
+        }
 
-	}
+    }
 
-        //TO test
-	@WebMethod
-	@Override
-	public User getByEmail(String email) throws UserNotFoundException {
+    //TO test
+    @WebMethod
+    @Override
+    public User getByEmail(String email) throws UserNotFoundException {
 
-                CriteriaBuilder cb = em.getCriteriaBuilder();              
-                CriteriaQuery cq = cb.createQuery();
-                Root<User> root = cq.from(User.class);              
-                cq.where( cb.equal(root.get("email"), cb.parameter(String.class, "emial"))  );             
-                TypedQuery<User> query = em.createQuery(cq);
-                query.setParameter("emial", email);
-                User user = query.getSingleResult();
-                
-                //OLD approach
-                //List<User> usersResult = new ArrayList<>();
-		//usersResult.addAll(em
-		//		.createNamedQuery(Constants.QUERY_GET_USER_BY_EMAIL)
-		//		.setParameter(Constants.PARAM_EMAIL, email).getResultList());
-                //    
-		//if (usersResult.isEmpty()) {
-		//	throw new UserNotFoundException(email);
-		//} else {
-		//	return usersResult.get(0);
-		//}
-                return user;
-	}
+        CriteriaBuilder cb = em.getCriteriaBuilder();
+        CriteriaQuery cq = cb.createQuery();
+        Root<User> root = cq.from(User.class);
+        cq.where(
+                cb.equal(
+                root.get("email"),
+                cb.parameter(String.class, "emial")));
+        TypedQuery<User> query = em.createQuery(cq);
+        query.setParameter("emial", email);
+        User user = query.getSingleResult();
+
+        //OLD approach
+        //List<User> usersResult = new ArrayList<>();
+        //usersResult.addAll(em
+        //		.createNamedQuery(Constants.QUERY_GET_USER_BY_EMAIL)
+        //		.setParameter(Constants.PARAM_EMAIL, email).getResultList());
+        //    
+        //if (usersResult.isEmpty()) {
+        //	throw new UserNotFoundException(email);
+        //} else {
+        //	return usersResult.get(0);
+        //}
+        return user;
+    }
 
     //to test
     //JPQL since JPA2.x
     @Override
     public List<User> getUsers() {
-        
+
         CriteriaBuilder cb = em.getCriteriaBuilder();
-        CriteriaQuery<User>cq = cb.createQuery(User.class);
+        CriteriaQuery<User> cq = cb.createQuery(User.class);
         //Root<User> pet = cq.from(User.class);
         TypedQuery<User> q = em.createQuery(cq);
-        List<User> allPets = q.getResultList();       
-        
+        List<User> allPets = q.getResultList();
+
         return allPets;
     }
 }
