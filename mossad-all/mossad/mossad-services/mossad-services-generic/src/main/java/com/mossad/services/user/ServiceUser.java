@@ -16,7 +16,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
-
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 import com.mossad.lib.domain.constants.Constants;
 import com.mossad.lib.domain.exceptions.user.UserExistsException;
@@ -26,12 +29,9 @@ import com.mossad.irp.interfaces.user.IServiceUserLocal;
 import com.mossad.irp.interfaces.user.IServiceUser;
 import com.mossad.jpa.lib.factories.UserFactory;
 import com.mossad.jpa.lib.user.User;
-import java.util.Set;
-import javax.persistence.Query;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
+
+
+
 
 /**
  *
@@ -124,11 +124,7 @@ public class ServiceUser implements IServiceUser {
 
     }
 
-    @Override
-    public void activateUSer() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
+   
     @WebMethod
     @Override
     public void removeUser(Long id) throws UserNotFoundException {
@@ -199,8 +195,36 @@ public class ServiceUser implements IServiceUser {
         CriteriaQuery<User> cq = cb.createQuery(User.class);
         //Root<User> pet = cq.from(User.class);
         TypedQuery<User> q = em.createQuery(cq);
-        List<User> allPets = q.getResultList();
+        List<User> users = q.getResultList();
 
-        return allPets;
+        return users;
     }
+
+	@Override
+	public User createUser(String email, String password, String name,
+			String surname) throws UserExistsException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public User updateUser(String newName, String newSurname, User user)
+			throws UserNotFoundException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void activateUser(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeUser(User user) throws UserNotFoundException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 }

@@ -4,14 +4,14 @@
  */
 package com.mossad.jpa.lib.testdata;
 
-import com.mossad.jpa.lib.task.Task;
-import com.mossad.lib.domain.constants.Constants;
-
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+
+import com.mossad.jpa.lib.task.Task;
+import com.mossad.lib.domain.constants.Constants;
 
 /**
  *
