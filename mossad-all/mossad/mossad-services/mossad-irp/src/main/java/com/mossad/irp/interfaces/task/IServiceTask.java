@@ -13,7 +13,8 @@ import java.util.List;
  * @author mmigdal
  */
 public interface IServiceTask {
-        Task createTask(TaskAttributes taskAttributes);
+    
+	Task createTask(TaskAttributes taskAttributes);
 
 	Task updateTask(Long taskId, TaskAttributes taskAttributes);
 
@@ -22,4 +23,6 @@ public interface IServiceTask {
 	Task getTask(Long taskId);
 
 	List<Task> getTasks(Long userId);
+	
+	List<Task> getTasks();
 }

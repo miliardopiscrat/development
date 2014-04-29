@@ -27,6 +27,7 @@ import javax.persistence.PersistenceContext;
 public class ServiceTask implements IServiceTaskRemote {
 
     private TaskFactory taskFactory;
+   
     @PersistenceContext
     EntityManager em;
 
@@ -114,4 +115,10 @@ public class ServiceTask implements IServiceTaskRemote {
 
         return task;
     }
+
+	@Override
+	public List<Task> getTasks() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
