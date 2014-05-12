@@ -3,10 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
     <artifactId>mossad-client-web</artifactId>
-    <groupId>com.mossad.client.web</groupId>
+    <groupId>mossad</groupId>
     <version>1.0-SNAPSHOT</version>
   </parent>
 
+    <groupId>mossad</groupId>
     <artifactId>mossad-web-servlet</artifactId>
     <packaging>war</packaging>
 
@@ -22,20 +23,36 @@
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <scope>provided</scope>
-        </dependency>
-        
+        </dependency>     
         <dependency>
             <groupId>javax</groupId>
                 <artifactId>javaee-api</artifactId>
-            <scope>provided</scope>
-            
+            <scope>provided</scope>          
         </dependency>
         <dependency>
             <groupId>mossad</groupId>
             <artifactId>mossad-irp</artifactId>
             <version>1.0-SNAPSHOT</version>      
-        </dependency>
-        
+        </dependency>      
     </dependencies>
+
+    <!--
+    <build>
+        <plugins>
+            <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    
+                </plugin>
+            
+            
+        </plugins>
+        
+        
+    </build>
+       --> 
+        
+
+
 
 </project>
