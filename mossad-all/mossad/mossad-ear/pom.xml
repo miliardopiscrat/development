@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>mossad-parent</artifactId>
         <groupId>mossad</groupId>
+        <artifactId>mossad-parent</artifactId>      
         <version>1.0-SNAPSHOT</version>
     </parent>
 
@@ -11,16 +11,13 @@
     <packaging>ear</packaging>
     <name>${project.artifactId}</name>
 
-    <dependencies>
-        
+    <dependencies>      
         <dependency>
             <groupId>mossad</groupId>
             <artifactId>mossad-irp</artifactId>
             <version>1.0-SNAPSHOT</version>
             <type>jar</type>
         </dependency> 
-        
-        
         <dependency>
             <groupId>mossad</groupId>
             <artifactId>mossad-services-generic</artifactId>
@@ -32,10 +29,7 @@
             <artifactId>mossad-services-ejb</artifactId>
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type>
-        </dependency>  
-        
-                 
-                                      
+        </dependency>                               
         <dependency>
             <groupId>mossad</groupId>
             <artifactId>mossad-web-servlet</artifactId>
@@ -47,10 +41,9 @@
             <artifactId>mossad-web-jsf</artifactId>
             <version>1.0-SNAPSHOT</version>
             <type>war</type>
-        </dependency>
-        
-        
+        </dependency>  
     </dependencies>
+    
     <build>
         <plugins>          
             <plugin>
