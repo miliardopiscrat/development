@@ -11,12 +11,17 @@
     <packaging>ear</packaging>
     <name>${project.artifactId}</name>
 
-    <dependencies>      
+    <dependencies> 
+        
+        <dependency>
+            <groupId>mossad</groupId>
+            <artifactId>mossad-access-jpa-ejb-config</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>            
         <dependency>
             <groupId>mossad</groupId>
             <artifactId>mossad-irp</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <type>jar</type>
         </dependency> 
         <dependency>
             <groupId>mossad</groupId>
