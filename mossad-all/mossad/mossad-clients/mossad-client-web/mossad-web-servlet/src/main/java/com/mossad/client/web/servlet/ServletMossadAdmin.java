@@ -4,6 +4,7 @@
  */
 package com.mossad.client.web.servlet;
 
+import com.mossad.irp.interfaces.task.IServiceTaskLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.mossad.irp.interfaces.task.IServiceTaskRemote;
 import com.mossad.irp.interfaces.user.IServiceUser;
+import com.mossad.jpa.lib.task.Task;
 import com.mossad.jpa.lib.user.User;
 import java.util.List;
 import javax.ejb.EJB;
@@ -22,25 +24,20 @@ import javax.ejb.EJB;
  *
  * @author mmigdal
  */
-@WebServlet(name = "ServletMossadReader", urlPatterns = {"/ServletMossadReader"})
+@WebServlet(name = "ServletMossadAdmin", urlPatterns = {"/ServletMossadAdmin"})
 public class ServletMossadAdmin extends HttpServlet {
 
-     
     /**
-     * 
+     *
      */
     private static final long serialVersionUID = 1L;
-
     //injection remote
     @EJB
-    private IServiceTaskRemote iServiceTaskRemote;
-    
+    private IServiceTaskLocal iServiceTaskLocal;
     @EJB
     private IServiceUser serviceUser;
-    
     private String aaa;
-    
-    
+
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -60,42 +57,49 @@ public class ServletMossadAdmin extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ServletMossad</title>");            
+            out.println("<title>Servlet ServletMossad</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ServletMossad at " + request.getContextPath() + "</h1>");
-            
+
             out.println("<table>");
-            
-            
+
             List<User> users = serviceUser.getUsers();
-            
-            for(User user : users){
-                
+
+            for (User user : users) {
+
                 System.out.println(user.getName());
                 System.out.println(user.getSurname());
                 System.out.println(user.getEmail());
                 System.out.println(user.getId());
                 System.out.println(user.getPassword());
-                
+
             }
-            
-            
-            
+
+            List<Task> tasks = iServiceTaskLocal.getTasks();
+
+            for(Task task : tasks){
+                System.out.println(task.getId());
+                System.out.println(task.getTitle());
+                System.out.println(task.getPriority());
+                System.out.println(task.getStatus());
+                System.out.println(task.getType());
+            }
+
             //headers
             out.println(
-                "<tr><th>Name</th><th>Surname</th><th>email</th><th>login</th><th>password</th></tr>");
-            
-            
-            
-            
+                    "<tr><th>Name</th><th>Surname</th><th>email</th><th>login</th><th>password</th></tr>");
+
+
+
+
             out.println("</table>");
             out.println("</body>");
             out.println("</html>");
-            
-            
-            
-        } finally {            
+
+
+
+        } finally {
             out.flush();
         }
     }
