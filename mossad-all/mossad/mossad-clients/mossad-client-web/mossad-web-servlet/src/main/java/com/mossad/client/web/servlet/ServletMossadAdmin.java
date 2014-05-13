@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.mossad.irp.interfaces.task.IServiceTaskRemote;
 import com.mossad.irp.interfaces.user.IServiceUser;
+import com.mossad.jpa.lib.user.User;
+import java.util.List;
 import javax.ejb.EJB;
 
 /**
@@ -21,7 +23,7 @@ import javax.ejb.EJB;
  * @author mmigdal
  */
 @WebServlet(name = "ServletMossadReader", urlPatterns = {"/ServletMossadReader"})
-public class ServletMossadReader extends HttpServlet {
+public class ServletMossadAdmin extends HttpServlet {
 
      
     /**
@@ -65,15 +67,24 @@ public class ServletMossadReader extends HttpServlet {
             
             out.println("<table>");
             
+            
+            List<User> users = serviceUser.getUsers();
+            
+            for(User user : users){
+                
+                System.out.println(user.getName());
+                System.out.println(user.getSurname());
+                System.out.println(user.getEmail());
+                System.out.println(user.getId());
+                System.out.println(user.getPassword());
+                
+            }
+            
+            
+            
             //headers
             out.println(
-                "<tr>" +
-                "<th>Name</th>" +
-                "<th>Surname</th>" +
-                "<th>email</th>" +
-                "<th>login</th>" +
-                "<th>password</th>" +
-                "</tr>");
+                "<tr><th>Name</th><th>Surname</th><th>email</th><th>login</th><th>password</th></tr>");
             
             
             
