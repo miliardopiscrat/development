@@ -4,5 +4,8 @@
  */
 package com.mossad.irp.interfaces.user;
 
+import javax.ejb.Local;
+
+@Local
 public interface IServiceUserLocal extends IServiceUser {
 }

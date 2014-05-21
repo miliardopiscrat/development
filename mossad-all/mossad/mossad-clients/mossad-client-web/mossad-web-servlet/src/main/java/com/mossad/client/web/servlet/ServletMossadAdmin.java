@@ -4,6 +4,7 @@
  */
 package com.mossad.client.web.servlet;
 
+import com.mossad.irp.interfaces.task.IServiceTask;
 import com.mossad.irp.interfaces.task.IServiceTaskLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -39,13 +40,13 @@ public class ServletMossadAdmin extends HttpServlet {
     private static final long serialVersionUID = 1L;
     //injection remote
     @EJB
-    private IServiceTaskLocal serviceTask;
-    @EJB
-    private IServiceUserLocal serviceUser;
+    private IServiceTask serviceTask;
+    //@EJB
+    //private IServiceUser serviceUser;
     
     
     @EJB
-    private IServiceTaskHelperLocal serviceTaskHelper;
+    private IServiceTaskHelper serviceTaskHelper;
     
     
     private String aaa;
@@ -79,6 +80,7 @@ public class ServletMossadAdmin extends HttpServlet {
             
             //TODO add renedering for these 'outputs'
             
+            /*
             List<User> users = serviceUser.getUsers();
 
             for (User user : users) {
@@ -90,6 +92,7 @@ public class ServletMossadAdmin extends HttpServlet {
                 System.out.println(user.getPassword());
 
             }
+            */
 
             List<Task> tasks = serviceTask.getTasks();
 

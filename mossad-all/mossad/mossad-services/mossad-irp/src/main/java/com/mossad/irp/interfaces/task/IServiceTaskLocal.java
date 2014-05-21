@@ -8,5 +8,9 @@ package com.mossad.irp.interfaces.task;
  *
  * @author mmigdal
  */
+
+import javax.ejb.Local;
+
+@Local
 public interface IServiceTaskLocal extends IServiceTask {
 }

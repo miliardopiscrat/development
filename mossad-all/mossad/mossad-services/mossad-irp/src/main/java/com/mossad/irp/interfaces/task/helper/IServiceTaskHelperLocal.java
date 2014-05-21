@@ -8,6 +8,10 @@ package com.mossad.irp.interfaces.task.helper;
  *
  * @author mmigdal
  */
+
+import javax.ejb.Local;
+
+@Local
 public interface IServiceTaskHelperLocal extends IServiceTaskHelper{
     
 }
