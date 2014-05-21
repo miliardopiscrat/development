@@ -38,7 +38,7 @@ public interface IServiceUser {
 	
 	void removeUser(User user) throws UserNotFoundException;
 	
-    List<User> getUsers();
+        List<User> getUsers();
         
     
 }

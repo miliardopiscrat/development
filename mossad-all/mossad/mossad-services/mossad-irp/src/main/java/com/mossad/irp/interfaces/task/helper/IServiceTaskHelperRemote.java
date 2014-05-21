@@ -11,7 +11,6 @@ import javax.ejb.*;
  * @author mmigdal
  */
 
-@Remote
 public interface IServiceTaskHelperRemote extends IServiceTaskHelper {
 
 	

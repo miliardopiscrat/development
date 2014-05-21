@@ -14,8 +14,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.mossad.irp.interfaces.task.IServiceTaskRemote;
+import com.mossad.irp.interfaces.task.helper.IServiceTaskHelper;
+import com.mossad.irp.interfaces.task.helper.IServiceTaskHelperLocal;
 import com.mossad.irp.interfaces.user.IServiceUser;
+import com.mossad.irp.interfaces.user.IServiceUserLocal;
 import com.mossad.jpa.lib.task.Task;
+import com.mossad.jpa.lib.task.TaskPriority;
+import com.mossad.jpa.lib.task.TaskStatus;
+import com.mossad.jpa.lib.task.TaskType;
 import com.mossad.jpa.lib.user.User;
 import java.util.List;
 import javax.ejb.EJB;
@@ -33,9 +39,15 @@ public class ServletMossadAdmin extends HttpServlet {
     private static final long serialVersionUID = 1L;
     //injection remote
     @EJB
-    private IServiceTaskLocal iServiceTaskLocal;
+    private IServiceTaskLocal serviceTask;
     @EJB
-    private IServiceUser serviceUser;
+    private IServiceUserLocal serviceUser;
+    
+    
+    @EJB
+    private IServiceTaskHelperLocal serviceTaskHelper;
+    
+    
     private String aaa;
 
     /**
@@ -64,6 +76,9 @@ public class ServletMossadAdmin extends HttpServlet {
 
             out.println("<table>");
 
+            
+            //TODO add renedering for these 'outputs'
+            
             List<User> users = serviceUser.getUsers();
 
             for (User user : users) {
@@ -76,8 +91,29 @@ public class ServletMossadAdmin extends HttpServlet {
 
             }
 
-            List<Task> tasks = iServiceTaskLocal.getTasks();
+            List<Task> tasks = serviceTask.getTasks();
 
+            List<TaskPriority> taskPriorities = serviceTaskHelper.getTaskPriorities();
+            
+            for( TaskPriority taskPriority : taskPriorities){
+            
+                System.out.println(taskPriority.getValue());
+                
+            }
+            
+            List<TaskStatus> taskStatuses = serviceTaskHelper.getTaskStatuses();
+            
+            for(TaskStatus ts : taskStatuses){
+            
+                System.out.println(ts.getValue());
+            }
+            
+            List<TaskType> taskTypes =  serviceTaskHelper.getTaskTypes();
+            
+            for(TaskType tt: taskTypes){
+                System.out.println(tt.getValue());
+            }
+            
             for(Task task : tasks){
                 System.out.println(task.getId());
                 System.out.println(task.getTitle());
