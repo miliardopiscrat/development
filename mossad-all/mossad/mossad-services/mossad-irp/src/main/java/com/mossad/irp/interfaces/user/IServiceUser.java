@@ -1,19 +1,19 @@
 package com.mossad.irp.interfaces.user;
 
 import java.util.List;
+import javax.ejb.Remote;
 
 import com.mossad.jpa.lib.user.User;
 import com.mossad.lib.domain.exceptions.user.UserExistsException;
 import com.mossad.lib.domain.exceptions.user.UserNotFoundException;
 
-
-
+@Remote
 public interface IServiceUser {
 
 	@Deprecated
-    User createUser(String email, String password) throws UserExistsException;
+        User createUser(String email, String password) throws UserExistsException;
 
-    User createUser(String email, String password, String name, String surname) throws UserExistsException;
+        User createUser(String email, String password, String name, String surname) throws UserExistsException;
     
 	// TODO to remove - use REALM instead
 	User loginUser(String email, String password) throws UserNotFoundException;

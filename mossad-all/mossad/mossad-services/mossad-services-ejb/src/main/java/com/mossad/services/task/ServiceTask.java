@@ -4,27 +4,31 @@
  */
 package com.mossad.services.task;
 
-import com.mossad.lib.domain.constants.Constants;
-import com.mossad.lib.domain.task.TaskAttributes;
-import com.mossad.irp.interfaces.task.IServiceTaskRemote;
-import com.mossad.jpa.lib.factories.TaskFactory;
-import com.mossad.jpa.lib.task.Task;
-
 import java.util.List;
 import java.util.logging.Logger;
-
+import javax.ejb.Local;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import com.mossad.irp.interfaces.task.IServiceTask;
+import com.mossad.irp.interfaces.task.IServiceTaskLocal;
+import com.mossad.lib.domain.constants.Constants;
+import com.mossad.lib.domain.task.TaskAttributes;
+import com.mossad.jpa.lib.factories.TaskFactory;
+import com.mossad.jpa.lib.task.Task;
+
+
 
 /**
  *
  * @author mmigdal
  */
 @Stateless//(name=Constants.BINDING_SERVICE_TASK,mappedName=Constants.BINDING_SERVICE_TASK)
-@Remote(IServiceTaskRemote.class)
-public class ServiceTask implements IServiceTaskRemote {
+@Remote(IServiceTask.class)
+@Local(IServiceTaskLocal.class)
+public class ServiceTask implements IServiceTask {
 
     private TaskFactory taskFactory;
    

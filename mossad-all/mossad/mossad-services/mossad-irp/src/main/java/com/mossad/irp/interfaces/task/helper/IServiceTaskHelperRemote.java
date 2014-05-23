@@ -4,13 +4,12 @@
  */
 package com.mossad.irp.interfaces.task.helper;
 
-import javax.ejb.*;
 
 /**
  * 
  * @author mmigdal
  */
-
+@Deprecated
 public interface IServiceTaskHelperRemote extends IServiceTaskHelper {
 
 	

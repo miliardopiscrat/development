@@ -41,8 +41,8 @@ public class ServletMossadAdmin extends HttpServlet {
     //injection remote
     @EJB
     private IServiceTask serviceTask;
-    //@EJB
-    //private IServiceUser serviceUser;
+    @EJB
+    private IServiceUser serviceUser;
     
     
     @EJB
@@ -80,7 +80,7 @@ public class ServletMossadAdmin extends HttpServlet {
             
             //TODO add renedering for these 'outputs'
             
-            /*
+            
             List<User> users = serviceUser.getUsers();
 
             for (User user : users) {
@@ -92,8 +92,8 @@ public class ServletMossadAdmin extends HttpServlet {
                 System.out.println(user.getPassword());
 
             }
-            */
-
+            
+            /*
             List<Task> tasks = serviceTask.getTasks();
 
             List<TaskPriority> taskPriorities = serviceTaskHelper.getTaskPriorities();
@@ -124,7 +124,7 @@ public class ServletMossadAdmin extends HttpServlet {
                 System.out.println(task.getStatus());
                 System.out.println(task.getType());
             }
-
+            */
             //headers
             out.println(
                     "<tr><th>Name</th><th>Surname</th><th>email</th><th>login</th><th>password</th></tr>");

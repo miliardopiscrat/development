@@ -27,7 +27,7 @@ import com.mossad.jpa.lib.task.TaskType;
  * @author mmigdal
  */
 @Stateless(name = Constants.BINDING_SERVICE_HELPER, mappedName = Constants.BINDING_SERVICE_HELPER)
-@Remote(IServiceTaskHelperRemote.class)
+@Remote(IServiceTaskHelper.class)
 @Local(IServiceTaskHelperLocal.class)
 public class ServiceTaskHelper implements IServiceTaskHelper {
 

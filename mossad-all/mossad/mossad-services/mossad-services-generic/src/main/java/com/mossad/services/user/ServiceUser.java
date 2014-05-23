@@ -39,7 +39,7 @@ import com.mossad.jpa.lib.user.User;
  */
 @Stateless
 // (name=Constants.BINDING_SERVICE_USER,mappedName=Constants.BINDING_SERVICE_USER)
-@Remote(IServiceUserRemote.class)
+@Remote(IServiceUser.class)
 @Local(IServiceUserLocal.class)
 @WebService()
 public class ServiceUser implements IServiceUser {
@@ -191,9 +191,11 @@ public class ServiceUser implements IServiceUser {
     @Override
     public List<User> getUsers() {
 
-        CriteriaBuilder cb = em.getCriteriaBuilder();
-        CriteriaQuery<User> cq = cb.createQuery(User.class);
-        //Root<User> pet = cq.from(User.class);
+        CriteriaQuery<User> cq = em.getCriteriaBuilder().createQuery(User.class);
+        
+        Root<User> pet = cq.from(User.class);
+        cq.select(pet);
+
         TypedQuery<User> q = em.createQuery(cq);
         List<User> users = q.getResultList();
 

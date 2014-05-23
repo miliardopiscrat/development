@@ -7,11 +7,14 @@ package com.mossad.irp.interfaces.task;
 import com.mossad.jpa.lib.task.Task;
 import com.mossad.lib.domain.task.TaskAttributes;
 import java.util.List;
+import javax.ejb.Remote;
 
 /**
  *
  * @author mmigdal
  */
+
+@Remote
 public interface IServiceTask {
     
 	Task createTask(TaskAttributes taskAttributes);

@@ -8,5 +8,6 @@ package com.mossad.irp.interfaces.task;
  *
  * @author mmigdal
  */
+@Deprecated
 public interface IServiceTaskRemote extends IServiceTask {
 }
