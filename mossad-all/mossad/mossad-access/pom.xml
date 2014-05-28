@@ -16,6 +16,5 @@
   <modules>
   	<module>mossad-access-jpa</module>
     <module>mossad-access-jpa-local-config</module>
-    <module>mossad-access-jpa-ejb-config</module>
   </modules>
 </project>
