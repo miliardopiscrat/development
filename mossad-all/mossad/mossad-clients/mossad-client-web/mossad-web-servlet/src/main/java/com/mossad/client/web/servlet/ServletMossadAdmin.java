@@ -39,14 +39,14 @@ public class ServletMossadAdmin extends HttpServlet {
      */
     private static final long serialVersionUID = 1L;
     //injection remote
-    @EJB
-    private IServiceTask serviceTask;
+    //@EJB
+   //private IServiceTask serviceTask;
     @EJB
     private IServiceUser serviceUser;
     
     
-    @EJB
-    private IServiceTaskHelper serviceTaskHelper;
+    //@EJB
+    //private IServiceTaskHelper serviceTaskHelper;
     
     
     private String aaa;

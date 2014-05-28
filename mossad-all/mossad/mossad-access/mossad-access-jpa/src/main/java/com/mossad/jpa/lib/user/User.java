@@ -21,13 +21,13 @@ import javax.persistence.Table;
 @Table(name = Constants.MOSSAD_USER_DEF)
 @NamedQueries({
     @NamedQuery(name = Constants.LOGIN_USER_BY_EMAIL_AND_PASSWORD,
-    query = "SELECT e FROM mossad_user e WHERE e.email= :"+ Constants.PARAM_EMAIL +" AND e.password = :"+Constants.PARAM_PASSWORD),
+    query = "SELECT user FROM mossad_user user WHERE user.email= :"+ Constants.PARAM_EMAIL +" AND user.password = :"+Constants.PARAM_PASSWORD),
     @NamedQuery(name = Constants.QUERY_GET_USER_BY_EMAIL,
-    query = "SELECT e FROM mossad_user e WHERE e.email= :"+Constants.PARAM_EMAIL),
+    query = "SELECT user FROM mossad_user user WHERE user.email= :"+Constants.PARAM_EMAIL),
     @NamedQuery(name = Constants.QUERY_GET_USER_BY_ID,
-    query = "SELECT e FROM mossad_user e WHERE e.id= :"+Constants.PARAM_ID),
+    query = "SELECT user FROM mossad_user user WHERE user.id= :"+Constants.PARAM_ID),
     @NamedQuery(name = Constants.GET_ALL_USERS,
-    query = "SELECT e FROM mossad_user")
+    query = "SELECT user FROM mossad_user user")
 })
 public class User extends AbstractEntityLite {
 

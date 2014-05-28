@@ -191,6 +191,8 @@ public class ServiceUser implements IServiceUser {
     @Override
     public List<User> getUsers() {
 
+        
+        /*
         CriteriaQuery<User> cq = em.getCriteriaBuilder().createQuery(User.class);
         
         Root<User> pet = cq.from(User.class);
@@ -198,8 +200,17 @@ public class ServiceUser implements IServiceUser {
 
         TypedQuery<User> q = em.createQuery(cq);
         List<User> users = q.getResultList();
-
+            
         return users;
+            */
+        
+        List<User> usersResult = new ArrayList<>();
+
+        usersResult.addAll(em
+                .createNamedQuery(Constants.GET_ALL_USERS)
+                .getResultList());
+        
+        return usersResult;
     }
 
 	@Override

@@ -13,11 +13,13 @@
 
     <dependencies> 
         
+        <!--
         <dependency>
             <groupId>mossad</groupId>
             <artifactId>mossad-access-jpa-ejb-config</artifactId>
             <version>1.0-SNAPSHOT</version>
-        </dependency>            
+        </dependency>
+        -->            
         <dependency>
             <groupId>mossad</groupId>
             <artifactId>mossad-irp</artifactId>

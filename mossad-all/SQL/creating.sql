@@ -27,8 +27,6 @@ CREATE TABLE IF NOT EXISTS `mossad_user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci AUTO_INCREMENT=1 ;
 
-insert into `mossad_user` values (1,'user1name','user1surname','user1email@wp.pl','user1password');
-
 
 CREATE TABLE IF NOT EXISTS `mossad_task` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -63,6 +61,8 @@ insert into `task_priority` values (1,'High');
 insert into `task_priority` values (2,'Medium');
 insert into `task_priority` values (3,'Low');
 insert into `task_priority` values (4,'Not specified');
+
+insert into `mossad_user` values (1,'user1name','user1surname','user1email@wp.pl','user1password');
 
 --//TODO to add to task table
 --due time
