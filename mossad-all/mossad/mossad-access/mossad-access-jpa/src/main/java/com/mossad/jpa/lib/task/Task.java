@@ -21,8 +21,8 @@ import javax.persistence.Table;
 @Entity(name = Constants.TASK_DEF)
 @Table(name = Constants.TASK_DEF)
 @NamedQueries({
-    @NamedQuery(name = Constants.TASK_QUERY_NAME_GET_USER_TASKS,query = "SELECT e FROM mossad_task e  WHERE e.user= :"+Constants.PARAM_USER_ID),
-    @NamedQuery(name = Constants.TASK_QUERY_NAME_GET_TASK_BY_TASK_ID,query = "SELECT e FROM mossad_task e  WHERE e.id= :"+Constants.PARAM_TASK_ID)
+    @NamedQuery(name = Constants.TASK_QUERY_NAME_GET_USER_TASKS,query = "SELECT e FROM mossad_task e WHERE e.userId= :"+Constants.PARAM_USER_ID),
+    @NamedQuery(name = Constants.TASK_QUERY_NAME_GET_TASK_BY_TASK_ID,query = "SELECT e FROM mossad_task e WHERE e.id= :"+Constants.PARAM_TASK_ID)
 })
 
 

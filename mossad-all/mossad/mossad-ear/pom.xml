@@ -31,12 +31,14 @@
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type>
         </dependency>
+        <!--
         <dependency>
             <groupId>mossad</groupId>
             <artifactId>mossad-services-ejb</artifactId>
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type>
-        </dependency>                               
+        </dependency>
+        -->                               
         <dependency>
             <groupId>mossad</groupId>
             <artifactId>mossad-web-servlet</artifactId>
