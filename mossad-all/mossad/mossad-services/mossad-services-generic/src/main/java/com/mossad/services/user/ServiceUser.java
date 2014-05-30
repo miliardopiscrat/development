@@ -24,14 +24,10 @@ import javax.persistence.criteria.Root;
 import com.mossad.lib.domain.constants.Constants;
 import com.mossad.lib.domain.exceptions.user.UserExistsException;
 import com.mossad.lib.domain.exceptions.user.UserNotFoundException;
-import com.mossad.irp.interfaces.user.IServiceUserRemote;
 import com.mossad.irp.interfaces.user.IServiceUserLocal;
 import com.mossad.irp.interfaces.user.IServiceUser;
 import com.mossad.jpa.lib.factories.UserFactory;
 import com.mossad.jpa.lib.user.User;
-
-
-
 
 /**
  *
@@ -52,30 +48,6 @@ public class ServiceUser implements IServiceUser {
     @PostConstruct
     public void init() {
         userFactory = new UserFactory();
-    }
-
-    @WebMethod
-    @Override
-    public User createUser(String email, String password)
-            throws UserExistsException {
-
-        List<User> usersResult = new ArrayList<>();
-
-        usersResult.addAll(em
-                .createNamedQuery(Constants.QUERY_GET_USER_BY_EMAIL)
-                .setParameter(Constants.PARAM_EMAIL, email).getResultList());
-
-        if (usersResult.isEmpty()) {
-            User user = userFactory.createUser(email, password);
-            user.setEmail(email);
-            user.setPassword(password);
-            em.persist(user);
-            return user;
-        } else {
-
-            throw new UserExistsException(email);
-        }
-
     }
 
     @Override
@@ -101,41 +73,6 @@ public class ServiceUser implements IServiceUser {
 
     @WebMethod
     @Override
-    public User updateUser(Long id, String name, String surname)
-            throws UserNotFoundException {
-        User user = getById(id);
-
-        log.log(Level.INFO, "ServiceUser - found user :{0}", user);
-
-        user.setName(name);
-        user.setSurname(surname);
-
-        log.log(Level.INFO, "ServiceUser - updating found user :{0}", user);
-        try {
-            em.persist(user);
-        } catch (Exception e) {
-            e.printStackTrace();
-
-            throw new UserNotFoundException(e.getMessage());
-
-        }
-
-        return user;
-
-    }
-
-   
-    @WebMethod
-    @Override
-    public void removeUser(Long id) throws UserNotFoundException {
-
-        User user = getById(id);
-        em.remove(user);
-
-    }
-
-    @WebMethod
-    @Override
     public User getById(Long id) throws UserNotFoundException {
 
         log.log(Level.INFO, "ServiceUser - finding user :{0}", id);
@@ -156,7 +93,6 @@ public class ServiceUser implements IServiceUser {
 
     }
 
-    //TO test
     @WebMethod
     @Override
     public User getByEmail(String email) throws UserNotFoundException {
@@ -191,53 +127,51 @@ public class ServiceUser implements IServiceUser {
     @Override
     public List<User> getUsers() {
 
-        
-        /*
-        CriteriaQuery<User> cq = em.getCriteriaBuilder().createQuery(User.class);
-        
-        Root<User> pet = cq.from(User.class);
-        cq.select(pet);
 
-        TypedQuery<User> q = em.createQuery(cq);
-        List<User> users = q.getResultList();
-            
-        return users;
-            */
+        /*
+         CriteriaQuery<User> cq = em.getCriteriaBuilder().createQuery(User.class);
         
+         Root<User> pet = cq.from(User.class);
+         cq.select(pet);
+
+         TypedQuery<User> q = em.createQuery(cq);
+         List<User> users = q.getResultList();
+            
+         return users;
+         */
+
         List<User> usersResult = new ArrayList<>();
 
         usersResult.addAll(em
                 .createNamedQuery(Constants.GET_ALL_USERS)
                 .getResultList());
-        
+
         return usersResult;
     }
 
-	@Override
-	public User createUser(String email, String password, String name,
-			String surname) throws UserExistsException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public User createUser(String email, String password, String name,
+            String surname) throws UserExistsException {
 
-	@Override
-	public User updateUser(String newName, String newSurname, User user)
-			throws UserNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+        User user = userFactory.createUser(name, surname, password, email);
+        em.persist(user);
+        return user;
+    }
 
-	@Override
-	public void activateUser(Long id) {
-		// TODO Auto-generated method stub
-		
-	}
+    @Override
+    public User updateUser(String newName, String newSurname, User user)
+            throws UserNotFoundException {
 
-	@Override
-	public void removeUser(User user) throws UserNotFoundException {
-		// TODO Auto-generated method stub
-		
-	}
+        return null;
+    }
 
-	
+    @Override
+    public void activateUser(Long id) {
+        // TODO Auto-generated method stub
+    }
+
+    @Override
+    public void removeUser(User user) throws UserNotFoundException {
+        em.remove(user);
+    }
 }

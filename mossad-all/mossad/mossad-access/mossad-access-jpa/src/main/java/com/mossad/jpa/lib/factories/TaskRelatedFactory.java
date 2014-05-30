@@ -4,7 +4,6 @@
  */
 package com.mossad.jpa.lib.factories;
 
-//import com.mossad.lib.domain.task.TaskType;
 import com.mossad.jpa.lib.task.Task;
 import com.mossad.jpa.lib.task.TaskPriority;
 import com.mossad.jpa.lib.task.TaskStatus;

@@ -4,13 +4,13 @@
  */
 package com.mossad.jpa.lib.task;
 
-import com.mossad.jpa.lib.abstraction.AbstractEntity;
-import com.mossad.lib.domain.constants.Constants;
-
 import javax.persistence.Entity;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
+import com.mossad.jpa.lib.abstraction.AbstractEntity;
+import com.mossad.lib.domain.constants.Constants;
 
 /**
  *

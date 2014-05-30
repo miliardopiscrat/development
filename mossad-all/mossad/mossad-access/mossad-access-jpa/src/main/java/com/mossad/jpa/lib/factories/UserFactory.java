@@ -26,11 +26,4 @@ public class UserFactory {
     
     }
     
-    public User createUser(String email, String password ){
-       
-        u = new User();
-        u.setEmail(email);
-        u.setPassword(password);
-        return u;
-    } 
 }
