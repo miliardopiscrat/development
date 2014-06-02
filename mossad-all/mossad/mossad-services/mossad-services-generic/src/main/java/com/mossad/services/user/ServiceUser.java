@@ -98,14 +98,16 @@ public class ServiceUser implements IServiceUser {
     public User getByEmail(String email) throws UserNotFoundException {
 
         CriteriaBuilder cb = em.getCriteriaBuilder();
+        
         CriteriaQuery cq = cb.createQuery();
         Root<User> root = cq.from(User.class);
         cq.where(
                 cb.equal(
                 root.get("email"),
-                cb.parameter(String.class, "emial")));
+                cb.parameter(String.class, "email")));
+        
         TypedQuery<User> query = em.createQuery(cq);
-        query.setParameter("emial", email);
+        query.setParameter("email", email);
         User user = query.getSingleResult();
 
         //OLD approach
@@ -162,12 +164,12 @@ public class ServiceUser implements IServiceUser {
     public User updateUser(String newName, String newSurname, User user)
             throws UserNotFoundException {
 
-        return null;
+        throw new UnsupportedOperationException("to be implemented in future");
     }
 
     @Override
     public void activateUser(Long id) {
-        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("to be implemented in future");
     }
 
     @Override
