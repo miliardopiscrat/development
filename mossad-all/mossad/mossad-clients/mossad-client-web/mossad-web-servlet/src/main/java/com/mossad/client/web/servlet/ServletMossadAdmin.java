@@ -34,23 +34,17 @@ import javax.ejb.EJB;
 @WebServlet(name = "ServletMossadAdmin", urlPatterns = {"/ServletMossadAdmin"})
 public class ServletMossadAdmin extends HttpServlet {
 
-    /**
-     *
-     */
+    private UserTableBuilder utb = new UserTableBuilder();
     private static final long serialVersionUID = 1L;
-    //injection remote
-    //@EJB
-   //private IServiceTask serviceTask;
+    
     @EJB
     private IServiceUser serviceUser;
-    
-    
+
+    //injection remote
+    //@EJB
+    //private IServiceTask serviceTask;
     //@EJB
     //private IServiceTaskHelper serviceTaskHelper;
-    
-    
-    private String aaa;
-
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -64,6 +58,7 @@ public class ServletMossadAdmin extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
         PrintWriter out = response.getWriter();
         try {
             /* TODO output your page here. You may use following sample code. */
@@ -73,66 +68,49 @@ public class ServletMossadAdmin extends HttpServlet {
             out.println("<title>Servlet ServletMossad</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ServletMossad at " + request.getContextPath() + "</h1>");
 
-            out.println("<table>");
+            utb.printUserTable(out, serviceUser.getUsers() );
 
-            
-            //TODO add renedering for these 'outputs'
-            
-            
-            List<User> users = serviceUser.getUsers();
 
-            for (User user : users) {
-
-                System.out.println(user.getName());
-                System.out.println(user.getSurname());
-                System.out.println(user.getEmail());
-                System.out.println(user.getId());
-                System.out.println(user.getPassword());
-
-            }
-            
             /*
-            List<Task> tasks = serviceTask.getTasks();
+             List<Task> tasks = serviceTask.getTasks();
 
-            List<TaskPriority> taskPriorities = serviceTaskHelper.getTaskPriorities();
+             List<TaskPriority> taskPriorities = serviceTaskHelper.getTaskPriorities();
             
-            for( TaskPriority taskPriority : taskPriorities){
+             for( TaskPriority taskPriority : taskPriorities){
             
-                System.out.println(taskPriority.getValue());
+             System.out.println(taskPriority.getValue());
                 
-            }
+             }
             
-            List<TaskStatus> taskStatuses = serviceTaskHelper.getTaskStatuses();
+             List<TaskStatus> taskStatuses = serviceTaskHelper.getTaskStatuses();
             
-            for(TaskStatus ts : taskStatuses){
+             for(TaskStatus ts : taskStatuses){
             
-                System.out.println(ts.getValue());
-            }
+             System.out.println(ts.getValue());
+             }
             
-            List<TaskType> taskTypes =  serviceTaskHelper.getTaskTypes();
+             List<TaskType> taskTypes =  serviceTaskHelper.getTaskTypes();
             
-            for(TaskType tt: taskTypes){
-                System.out.println(tt.getValue());
-            }
+             for(TaskType tt: taskTypes){
+             System.out.println(tt.getValue());
+             }
             
-            for(Task task : tasks){
-                System.out.println(task.getId());
-                System.out.println(task.getTitle());
-                System.out.println(task.getPriority());
-                System.out.println(task.getStatus());
-                System.out.println(task.getType());
-            }
-            */
+             for(Task task : tasks){
+             System.out.println(task.getId());
+             System.out.println(task.getTitle());
+             System.out.println(task.getPriority());
+             System.out.println(task.getStatus());
+             System.out.println(task.getType());
+             }
+             */
             //headers
-            out.println(
-                    "<tr><th>Name</th><th>Surname</th><th>email</th><th>login</th><th>password</th></tr>");
 
 
 
 
-            out.println("</table>");
+
+            
             out.println("</body>");
             out.println("</html>");
 
@@ -181,6 +159,6 @@ public class ServletMossadAdmin extends HttpServlet {
      */
     @Override
     public String getServletInfo() {
-        return "Short description for Mossad Servlet";
+        return "Servlet monitoring Mossad entries in DB";
     }// </editor-fold>
 }

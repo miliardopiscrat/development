@@ -12,17 +12,24 @@ import com.mossad.jpa.lib.user.User;
  */
 public class UserFactory {
     
-    private User u;
-    
+    private User user;
+    /**
+     @param name
+     @param surname
+     @param password
+     @param  email
+     @return Set of <code>User</code>
+     
+     */
     public User createUser(String name, String surname, String password, String email){
 
-        u = new User();
-        u.setName(name);
-        u.setSurname(surname);
-        u.setPassword(password);
-        u.setEmail(email);
+        user = new User();
+        user.setName(name);
+        user.setSurname(surname);
+        user.setPassword(password);
+        user.setEmail(email);
         
-        return u;
+        return user;
     
     }
     

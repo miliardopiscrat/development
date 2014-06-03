@@ -42,6 +42,7 @@ public class ServiceUser implements IServiceUser {
 
     private UserFactory userFactory;
     private static final Logger log = Logger.getLogger(Constants.LOGGER_SERVICE_USER);
+    
     @PersistenceContext
     private EntityManager em;
 
@@ -77,20 +78,9 @@ public class ServiceUser implements IServiceUser {
 
         log.log(Level.INFO, "ServiceUser - finding user :{0}", id);
 
-        List<User> usersResult = new ArrayList<>();
 
-        usersResult.addAll(em.createNamedQuery(Constants.QUERY_GET_USER_BY_ID)
-                .setParameter(Constants.PARAM_ID, id).getResultList());
-
-        log.log(Level.INFO, "ServiceUser - finding user found users :{0}",
-                usersResult);
-
-        if (usersResult.isEmpty()) {
-            throw new UserNotFoundException(id);
-        } else {
-            return usersResult.get(0);
-        }
-
+        return (User)em.createNamedQuery(Constants.QUERY_GET_USER_BY_ID)
+                .setParameter(Constants.PARAM_ID, id).getSingleResult();
     }
 
     @WebMethod

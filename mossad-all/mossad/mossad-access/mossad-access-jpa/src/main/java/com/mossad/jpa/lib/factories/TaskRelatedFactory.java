@@ -49,24 +49,5 @@ public class TaskRelatedFactory {
         return taskPriority;
     
     }
-    
-    //use task factory
-    @Deprecated 
-    public Task getTask(String title,String description,long priority, long user, long status, long type){
-        
-     
-        task = new Task();
-        task.setTitle(title);
-        task.setDescription(description);
-        task.setPriority(priority);
-        task.setUser(user);
-        task.setStatus(status);
-        task.setType(type);
-        return task;
-        
-    }
-    
-    
-    
-     
+ 
 }
