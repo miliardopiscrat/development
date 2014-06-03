@@ -34,15 +34,15 @@ import javax.ejb.EJB;
 @WebServlet(name = "ServletMossadAdmin", urlPatterns = {"/ServletMossadAdmin"})
 public class ServletMossadAdmin extends HttpServlet {
 
-    private UserTableBuilder utb = new UserTableBuilder();
+    private UserTableBuilder userTableBuilder = new UserTableBuilder();
     private static final long serialVersionUID = 1L;
     
     @EJB
     private IServiceUser serviceUser;
 
     //injection remote
-    //@EJB
-    //private IServiceTask serviceTask;
+    @EJB
+    private IServiceTask serviceTask;
     //@EJB
     //private IServiceTaskHelper serviceTaskHelper;
     /**
@@ -69,8 +69,11 @@ public class ServletMossadAdmin extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
 
-            utb.printUserTable(out, serviceUser.getUsers() );
+            userTableBuilder.printUserTable(out, serviceUser.getUsers() );
 
+            List<Task> tasks = serviceTask.getTasks();
+            
+            
 
             /*
              List<Task> tasks = serviceTask.getTasks();
