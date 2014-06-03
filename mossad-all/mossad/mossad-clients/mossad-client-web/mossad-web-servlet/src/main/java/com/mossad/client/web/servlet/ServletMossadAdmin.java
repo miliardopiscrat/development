@@ -70,7 +70,7 @@ public class ServletMossadAdmin extends HttpServlet {
             userTableBuilder.printUserTable(out, serviceUser.getUsers());
 
 
-            //below to be added soon
+            //below to be added soon.....
             List<Task> tasks = serviceTask.getTasks();
 
             List<TaskPriority> taskPriorities = serviceTaskHelper.getTaskPriorities();
@@ -78,19 +78,21 @@ public class ServletMossadAdmin extends HttpServlet {
             for (TaskPriority taskPriority : taskPriorities) {
 
                 System.out.println(taskPriority.getValue());
-
+                System.out.println(taskPriority.getId());
             }
 
             List<TaskStatus> taskStatuses = serviceTaskHelper.getTaskStatuses();
 
             for (TaskStatus ts : taskStatuses) {
 
+                System.out.println(ts.getId());
                 System.out.println(ts.getValue());
             }
 
             List<TaskType> taskTypes = serviceTaskHelper.getTaskTypes();
 
             for (TaskType tt : taskTypes) {
+                System.out.println(tt.getId());
                 System.out.println(tt.getValue());
             }
 
@@ -109,6 +111,7 @@ public class ServletMossadAdmin extends HttpServlet {
 
         } finally {
             out.flush();
+            out.close();
         }
     }
 

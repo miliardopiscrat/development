@@ -23,7 +23,7 @@ class UserTableBuilder {
         if (users != null && users.size() > 0) {
 
                 out.println("<table border=\"1\" cellpadding=\"5\" >");
-                //out.println("<caption>My table caption</caption>");
+                out.println("<caption>Users table</caption>");
                 out.println(
                         //"<tr border=\"1\">"
                          "<th>Name</th>"
