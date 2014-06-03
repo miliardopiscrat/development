@@ -36,15 +36,13 @@ public class ServletMossadAdmin extends HttpServlet {
 
     private UserTableBuilder userTableBuilder = new UserTableBuilder();
     private static final long serialVersionUID = 1L;
-    
     @EJB
     private IServiceUser serviceUser;
-
-    //injection remote
     @EJB
     private IServiceTask serviceTask;
-    //@EJB
-    //private IServiceTaskHelper serviceTaskHelper;
+    @EJB
+    private IServiceTaskHelper serviceTaskHelper;
+
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -58,7 +56,7 @@ public class ServletMossadAdmin extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
         PrintWriter out = response.getWriter();
         try {
             /* TODO output your page here. You may use following sample code. */
@@ -69,51 +67,41 @@ public class ServletMossadAdmin extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
 
-            userTableBuilder.printUserTable(out, serviceUser.getUsers() );
+            userTableBuilder.printUserTable(out, serviceUser.getUsers());
 
+
+            //below to be added soon
             List<Task> tasks = serviceTask.getTasks();
-            
-            
 
-            /*
-             List<Task> tasks = serviceTask.getTasks();
+            List<TaskPriority> taskPriorities = serviceTaskHelper.getTaskPriorities();
 
-             List<TaskPriority> taskPriorities = serviceTaskHelper.getTaskPriorities();
-            
-             for( TaskPriority taskPriority : taskPriorities){
-            
-             System.out.println(taskPriority.getValue());
-                
-             }
-            
-             List<TaskStatus> taskStatuses = serviceTaskHelper.getTaskStatuses();
-            
-             for(TaskStatus ts : taskStatuses){
-            
-             System.out.println(ts.getValue());
-             }
-            
-             List<TaskType> taskTypes =  serviceTaskHelper.getTaskTypes();
-            
-             for(TaskType tt: taskTypes){
-             System.out.println(tt.getValue());
-             }
-            
-             for(Task task : tasks){
-             System.out.println(task.getId());
-             System.out.println(task.getTitle());
-             System.out.println(task.getPriority());
-             System.out.println(task.getStatus());
-             System.out.println(task.getType());
-             }
-             */
-            //headers
+            for (TaskPriority taskPriority : taskPriorities) {
 
+                System.out.println(taskPriority.getValue());
 
+            }
 
+            List<TaskStatus> taskStatuses = serviceTaskHelper.getTaskStatuses();
 
+            for (TaskStatus ts : taskStatuses) {
 
-            
+                System.out.println(ts.getValue());
+            }
+
+            List<TaskType> taskTypes = serviceTaskHelper.getTaskTypes();
+
+            for (TaskType tt : taskTypes) {
+                System.out.println(tt.getValue());
+            }
+
+            for (Task task : tasks) {
+                System.out.println(task.getId());
+                System.out.println(task.getTitle());
+                System.out.println(task.getPriority());
+                System.out.println(task.getStatus());
+                System.out.println(task.getType());
+            }
+
             out.println("</body>");
             out.println("</html>");
 

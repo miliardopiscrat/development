@@ -22,7 +22,7 @@ class UserTableBuilder {
     
         if (users != null && users.size() > 0) {
 
-                out.println("<table>");
+                out.println("<table border=\"1\" cellpadding=\"5\" >");
                 //out.println("<caption>My table caption</caption>");
                 out.println(
                         //"<tr border=\"1\">"
@@ -30,6 +30,7 @@ class UserTableBuilder {
                         + "<th>Surname</th>"
                         + "<th>email</th>"
                         + "<th>password</th>"
+                        + "<th>id</th>"
                         + "</tr>");
 
 
@@ -57,11 +58,9 @@ class UserTableBuilder {
                     out.println("</td>");
 
                     out.println("</tr>");
-                    out.println("</table>");
+                    
                 }
-
-                
-
+                out.println("</table>");
             }
         
     }
