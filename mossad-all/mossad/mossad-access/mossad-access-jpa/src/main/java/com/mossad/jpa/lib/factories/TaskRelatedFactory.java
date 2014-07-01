@@ -19,7 +19,6 @@ public class TaskRelatedFactory {
     private TaskStatus taskStatus;
     
     private TaskPriority taskPriority;
-    private Task task;
     
     public TaskRelatedFactory() {
     }
