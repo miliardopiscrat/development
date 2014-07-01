@@ -5,11 +5,9 @@
 package com.mossad.lib.util;
 
 import org.junit.After;
-import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -32,13 +30,13 @@ public class TestTimeMeasurement {
     @Test
     public void testReset() {
         timeMeasurement.reset();
-        assertEquals(0, timeMeasurement.getResultInMiliseconds());
+        Assert.assertEquals(0, timeMeasurement.getResultInMiliseconds());
     }
 
     @Test
     public void testDefaultBehaviour() {
         timeMeasurement.reset();
-        assertEquals(0, timeMeasurement.getResultInMiliseconds());
+        Assert.assertEquals(0, timeMeasurement.getResultInMiliseconds());
 
         timeMeasurement.start();
 
@@ -47,7 +45,7 @@ public class TestTimeMeasurement {
 
         timeMeasurement.stop();
 
-        assertTrue(checkValue());
+        Assert.assertTrue(checkValue());
     }
 
     private boolean checkValue() {
