@@ -16,7 +16,7 @@ import javax.persistence.PersistenceContext;
 
 import com.mossad.lib.domain.constants.Constants;
 import com.mossad.irp.interfaces.task.helper.IServiceTaskHelper;
-import com.mossad.irp.interfaces.task.helper.IServiceTaskHelperRemote;
+import com.mossad.irp.interfaces.task.helper.IServiceTaskHelper;
 import com.mossad.irp.interfaces.task.helper.IServiceTaskHelperLocal;
 import com.mossad.jpa.lib.task.TaskPriority;
 import com.mossad.jpa.lib.task.TaskStatus;

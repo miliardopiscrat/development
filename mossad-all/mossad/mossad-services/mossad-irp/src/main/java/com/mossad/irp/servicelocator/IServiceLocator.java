@@ -4,9 +4,9 @@
  */
 package com.mossad.irp.servicelocator;
 
-import com.mossad.irp.interfaces.task.IServiceTaskRemote;
-import com.mossad.irp.interfaces.task.helper.IServiceTaskHelperRemote;
-import com.mossad.irp.interfaces.user.IServiceUserRemote;
+import com.mossad.irp.interfaces.task.IServiceTask;
+import com.mossad.irp.interfaces.task.helper.IServiceTaskHelper;
+import com.mossad.irp.interfaces.user.IServiceUser;
 import javax.naming.NamingException;
 
 /**
@@ -15,10 +15,10 @@ import javax.naming.NamingException;
  */
 public interface IServiceLocator {
     
-    IServiceTaskRemote getServiceTask() throws NamingException;
+    IServiceTask getServiceTask() throws NamingException;
     
-    IServiceUserRemote getServiceUser() throws NamingException ;
+    IServiceUser getServiceUser() throws NamingException ;
     
-    IServiceTaskHelperRemote getServiceTaskHelper() throws NamingException ;
+    IServiceTaskHelper getServiceTaskHelper() throws NamingException ;
     
 }

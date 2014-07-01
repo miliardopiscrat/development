@@ -4,8 +4,6 @@
  */
 package com.mossad.client.web.servlet;
 
-import com.mossad.irp.interfaces.task.IServiceTask;
-import com.mossad.irp.interfaces.task.IServiceTaskLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,16 +12,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.mossad.irp.interfaces.task.IServiceTaskRemote;
-import com.mossad.irp.interfaces.task.helper.IServiceTaskHelper;
 import com.mossad.irp.interfaces.task.helper.IServiceTaskHelperLocal;
-import com.mossad.irp.interfaces.user.IServiceUser;
+import com.mossad.irp.interfaces.task.IServiceTaskLocal;
 import com.mossad.irp.interfaces.user.IServiceUserLocal;
 import com.mossad.jpa.lib.task.Task;
 import com.mossad.jpa.lib.task.TaskPriority;
 import com.mossad.jpa.lib.task.TaskStatus;
 import com.mossad.jpa.lib.task.TaskType;
-import com.mossad.jpa.lib.user.User;
 import java.util.List;
 import javax.ejb.EJB;
 
@@ -37,11 +32,11 @@ public class ServletMossadAdmin extends HttpServlet {
     private UserTableBuilder userTableBuilder = new UserTableBuilder();
     private static final long serialVersionUID = 1L;
     @EJB
-    private IServiceUser serviceUser;
+    private IServiceUserLocal serviceUser;
     @EJB
-    private IServiceTask serviceTask;
+    private IServiceTaskLocal serviceTask;
     @EJB
-    private IServiceTaskHelper serviceTaskHelper;
+    private IServiceTaskHelperLocal serviceTaskHelper;
 
     /**
      * Processes requests for both HTTP

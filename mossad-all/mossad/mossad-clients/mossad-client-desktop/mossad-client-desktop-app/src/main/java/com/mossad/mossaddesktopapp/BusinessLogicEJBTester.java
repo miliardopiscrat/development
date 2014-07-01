@@ -1,9 +1,9 @@
 package com.mossad.mossaddesktopapp;
 
-import com.mossad.irp.interfaces.task.IServiceTaskRemote;
+import com.mossad.irp.interfaces.task.IServiceTask;
 import com.mossad.irp.servicelocator.IServiceLocator;
 import com.mossad.irp.servicelocator.ServiceLocator;
-import com.mossad.irp.interfaces.task.helper.IServiceTaskHelperRemote;
+import com.mossad.irp.interfaces.task.helper.IServiceTaskHelper;
 import com.mossad.jpa.lib.task.TaskType;
 import com.mossad.lib.util.TimeMeasurement;
 
@@ -41,7 +41,7 @@ public class BusinessLogicEJBTester {
         tm.stop();
         System.out.println("Created ServiceLocator " + tm.getResultInMiliseconds());
         tm.reset();
-        IServiceTaskHelperRemote taskHelper = null;
+        IServiceTaskHelper taskHelper = null;
 
 
         try {
