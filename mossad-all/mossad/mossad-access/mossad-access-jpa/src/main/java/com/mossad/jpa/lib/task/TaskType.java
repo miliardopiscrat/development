@@ -28,6 +28,8 @@ import javax.persistence.Table;
 
 public class TaskType extends AbstractEntity {
 
+    private static final long serialVersionUID = 1L;
+
     public TaskType() {
         
     }

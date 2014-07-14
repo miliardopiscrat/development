@@ -28,7 +28,8 @@ import javax.persistence.Table;
 
 public class Task extends AbstractEntityLite {
 
-    
+    private static final long serialVersionUID = 1L;
+
     @Column(name="title") 
     private String title;
 

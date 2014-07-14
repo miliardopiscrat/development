@@ -15,6 +15,9 @@ import com.mossad.jpa.lib.abstraction.AbstractEntity;
 // add to DB & Impl
 public class TaskRepetition extends AbstractEntity {
 
+
+    private static final long serialVersionUID = 1L;
+
     public TaskRepetition(Long id, String value) {
         super(id, value);
     }

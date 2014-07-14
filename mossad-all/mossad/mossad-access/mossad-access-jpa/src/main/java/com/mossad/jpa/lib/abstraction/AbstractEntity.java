@@ -18,6 +18,8 @@ import javax.persistence.InheritanceType;
 public abstract class AbstractEntity extends AbstractEntityLite //implements IEntity 
 {
 
+    private static final long serialVersionUID = 1L;
+    
     @Column(name = "val")
     private String val;
 
