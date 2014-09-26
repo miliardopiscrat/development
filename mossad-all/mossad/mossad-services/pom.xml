@@ -17,7 +17,6 @@
   <modules>
 	  <module>mossad-irp</module>
       <module>mossad-services-generic</module>
-    <module>JAX-WS-server</module>
   </modules>
   
   
