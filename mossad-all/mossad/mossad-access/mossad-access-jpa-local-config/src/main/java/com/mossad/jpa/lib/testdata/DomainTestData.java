@@ -12,11 +12,13 @@ import com.mossad.jpa.lib.task.TaskPriority;
 import com.mossad.jpa.lib.task.TaskStatus;
 import com.mossad.jpa.lib.task.TaskType;
 import com.mossad.jpa.lib.user.User;
+import com.mossad.jpa.test.data.UsersContainer;
 import com.mossad.lib.domain.constants.Constants;
 import com.mossad.lib.domain.task.TaskAttributes;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  *
@@ -58,25 +60,16 @@ public class DomainTestData {
 
     public void fillUsers() {
 
-        String user1name = "user1name";
-        String user1surname = "user1surname";
-        //String user1login = "user1login";
-        String user1password = "user1password";
-        String user1email = "user1email";
+       
+        UsersContainer uc = new UsersContainer();
+        
+        Set<User> users = uc.getData();
+        
+        
+        
 
-        String user2name = "user2name";
-        String user2surname = "user2surname";
-        //String user2login = "user2login";
-        String user2password = "user2password";
-        String user2email = "user2email";
-
-
-        User u1 = userFactory.createUser(user2name, user2name, user2password, user2email);
-
-        User u2 = userFactory.createUser(user1name, user1name, user1password, user1email);
-
-        users.add(u2);
-        users.add(u1);
+        users.addAll( users );
+       
 
 
     }

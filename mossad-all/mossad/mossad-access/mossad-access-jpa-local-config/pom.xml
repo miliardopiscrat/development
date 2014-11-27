@@ -21,13 +21,15 @@
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
 		</dependency>
-            
-            
+
+		
 		<dependency>
 			<groupId>mossad</groupId>
-			<artifactId>mossad-access-jpa</artifactId>
+			<artifactId>mossad-access-jpa-test-data</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
+		
+		
 	</dependencies>
 	
 </project>

@@ -29,7 +29,7 @@ public class UsersContainer {
         users = new HashSet();
     }
 
-    public void populate() {
+    private  void populate() {
 
         for (int number = 0; number < TestDataConsts.NUMBER_OF_USERS; number++) {
 
@@ -40,6 +40,7 @@ public class UsersContainer {
     }
 
     public Set<User> getData() {
+        populate();
         return users;
     }
 }
